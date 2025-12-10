@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuddyWork - เพื่อนคู่คิดธุรกิจคุณ</title>
+    
+    <!-- Google Fonts: Prompt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Prompt', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4ff',
+                            100: '#e0eaff',
+                            500: '#6366f1', // Indigo
+                            600: '#4f46e5',
+                            900: '#312e81',
+                        },
+                        accent: {
+                            light: '#ffedd5',
+                            DEFAULT: '#fb923c', // Orange/Coral
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #c7c7cc; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+
+        .blob-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23F0F4FF' d='M44.7,-76.4C58.9,-69.2,71.8,-59.1,79.6,-46.9C87.4,-34.7,90.1,-20.4,85.8,-7.4C81.5,5.6,70.2,17.2,60.9,27.9C51.6,38.6,44.3,48.4,35,57.1C25.7,65.8,14.4,73.4,2.2,77.2C-10,81,-20,81,-31.1,76.5C-42.2,72,-54.4,63,-63.4,52.2C-72.4,41.4,-78.2,28.8,-80.4,15.5C-82.6,2.2,-81.2,-11.8,-75.3,-24.3C-69.4,-36.8,-59,-47.8,-47.3,-55.9C-35.6,-64,-22.6,-69.2,-9.5,-71.2C3.6,-73.2,17.2,-72,30.5,-83.6L44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-100" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer gap-2">
+                    <div class="w-10 h-10 bg-brand-500 rounded-xl flex items-center justify-center text-white text-xl shadow-lg shadow-brand-500/30">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-gray-900">Buddy<span class="text-brand-500">Work</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#features" class="text-gray-500 hover:text-brand-600 font-medium transition">ฟีเจอร์</a>
+                    <a href="#how-it-works" class="text-gray-500 hover:text-brand-600 font-medium transition">วิธีการทำงาน</a>
+                    <a href="#pricing" class="text-gray-500 hover:text-brand-600 font-medium transition">ราคา</a>
+                    <a href="#" class="text-brand-600 font-semibold hover:bg-brand-50 px-4 py-2 rounded-xl transition">เข้าสู่ระบบ</a>
+                    <button onclick="confettiEffect()" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full font-semibold shadow-lg shadow-brand-500/30 hover:shadow-brand-500/50 transition transform hover:-translate-y-0.5 active:scale-95">
+                        ทดลองฟรี 🚀
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#features" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">ฟีเจอร์</a>
+                <a href="#pricing" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">ราคา</a>
+                <a href="#" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">เข้าสู่ระบบ</a>
+                <div class="mt-4">
+                    <button class="w-full bg-brand-600 text-white px-6 py-3 rounded-xl font-semibold shadow-md">ทดลองฟรี</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+        <!-- Decoration Blobs -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float"></div>
+        <div class="absolute top-40 left-0 -ml-20 w-72 h-72 bg-accent-light rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-float" style="animation-delay: 2s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-100 shadow-sm mb-8 animate-bounce-slow">
+                    <span class="bg-accent text-white text-xs font-bold px-2 py-0.5 rounded-full">ใหม่</span>
+                    <span class="text-sm font-medium text-gray-600">ผู้ช่วย AI เวอร์ชัน 2.0 มาแล้ว! ✨</span>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
+                    จัดการงานให้เป็นเรื่อง<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-accent">สนุกและง่ายขึ้น</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+                    เบื่อไหมกับระบบที่ซับซ้อน? BuddyWork คือผู้ช่วยที่เข้าใจคุณที่สุด 
+                    ช่วยจัดระเบียบงาน ติดตามโปรเจกต์ และดูแลทีมเหมือนมีเพื่อนคู่ใจ
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="confettiEffect()" class="px-8 py-4 bg-brand-600 text-white rounded-2xl font-bold text-lg shadow-xl shadow-brand-500/40 hover:bg-brand-700 hover:scale-105 transition duration-300 flex items-center justify-center gap-2">
+                        เริ่มต้นใช้งานฟรี <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button class="px-8 py-4 bg-white text-gray-700 border-2 border-gray-100 rounded-2xl font-bold text-lg hover:border-brand-200 hover:text-brand-600 transition duration-300 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-play-circle text-brand-500"></i> ดูวิดีโอแนะนำ
+                    </button>
+                </div>
+                <p class="mt-6 text-sm text-gray-500">🎉 ไม่ต้องใช้บัตรเครดิต • ยกเลิกได้ตลอดเวลา</p>
+            </div>
+
+            <!-- SaaS Mockup / Visual -->
+            <div class="relative max-w-5xl mx-auto animate-float" style="animation-duration: 8s;">
+                <div class="relative rounded-3xl bg-gray-900 p-2 sm:p-4 shadow-2xl shadow-brand-900/20 ring-1 ring-gray-900/10">
+                    <div class="relative rounded-2xl bg-white overflow-hidden aspect-[16/9] flex flex-col">
+                        <!-- Mockup Header -->
+                        <div class="h-12 border-b border-gray-100 flex items-center px-4 space-x-2 bg-gray-50">
+                            <div class="flex space-x-1.5">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
+                            <div class="flex-1 bg-white h-8 rounded-lg mx-4 border border-gray-200 flex items-center px-3 text-xs text-gray-400">
+                                buddywork.com/dashboard
+                            </div>
+                        </div>
+                        <!-- Mockup Body -->
+                        <div class="flex-1 flex overflow-hidden">
+                            <!-- Sidebar -->
+                            <div class="w-16 sm:w-64 bg-gray-50 border-r border-gray-100 p-4 hidden sm:flex flex-col gap-4">
+                                <div class="h-8 w-3/4 bg-gray-200 rounded animate-pulse"></div>
+                                <div class="space-y-2 mt-4">
+                                    <div class="h-10 w-full bg-brand-50 text-brand-600 rounded-xl flex items-center px-3 font-medium text-sm gap-2">
+                                        <i class="fa-solid fa-house"></i> ภาพรวม
+                                    </div>
+                                    <div class="h-10 w-full hover:bg-gray-100 rounded-xl flex items-center px-3 text-gray-500 font-medium text-sm gap-2">
+                                        <i class="fa-solid fa-list-check"></i> งานของฉัน
+                                    </div>
+                                    <div class="h-10 w-full hover:bg-gray-100 rounded-xl flex items-center px-3 text-gray-500 font-medium text-sm gap-2">
+                                        <i class="fa-solid fa-users"></i> ทีม
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Main Content -->
+                            <div class="flex-1 p-6 bg-white overflow-y-auto">
+                                <div class="flex justify-between items-end mb-8">
+                                    <div>
+                                        <h2 class="text-2xl font-bold text-gray-800">สวัสดี, เอมมี่! 👋</h2>
+                                        <p class="text-gray-500">วันนี้มี 3 งานที่ต้องทำนะ สู้ๆ!</p>
+                                    </div>
+                                    <div class="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold">A</div>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                                    <div class="p-4 rounded-2xl bg-brand-50 border border-brand-100">
+                                        <div class="text-brand-500 text-lg mb-2"><i class="fa-solid fa-clock"></i></div>
+                                        <div class="font-bold text-gray-800">รอตรวจสอบ</div>
+                                        <div class="text-2xl font-bold text-brand-600">12</div>
+                                    </div>
+                                    <div class="p-4 rounded-2xl bg-green-50 border border-green-100">
+                                        <div class="text-green-500 text-lg mb-2"><i class="fa-solid fa-check-circle"></i></div>
+                                        <div class="font-bold text-gray-800">เสร็จสิ้น</div>
+                                        <div class="text-2xl font-bold text-green-600">45</div>
+                                    </div>
+                                    <div class="p-4 rounded-2xl bg-orange-50 border border-orange-100">
+                                        <div class="text-orange-500 text-lg mb-2"><i class="fa-solid fa-fire"></i></div>
+                                        <div class="font-bold text-gray-800">เร่งด่วน</div>
+                                        <div class="text-2xl font-bold text-orange-600">3</div>
+                                    </div>
+                                </div>
+
+                                <!-- Task List Mockup -->
+                                <div class="space-y-3">
+                                    <div class="p-4 border border-gray-100 rounded-xl flex items-center justify-between hover:shadow-md transition cursor-pointer group">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-5 h-5 rounded-md border-2 border-gray-300 group-hover:border-brand-500"></div>
+                                            <span class="text-gray-700 font-medium">ออกแบบหน้า Landing Page</span>
+                                        </div>
+                                        <span class="px-3 py-1 bg-red-100 text-red-600 text-xs rounded-full font-medium">วันนี้</span>
+                                    </div>
+                                    <div class="p-4 border border-gray-100 rounded-xl flex items-center justify-between hover:shadow-md transition cursor-pointer group">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-5 h-5 rounded-md border-2 border-gray-300 group-hover:border-brand-500"></div>
+                                            <span class="text-gray-700 font-medium">ประชุมทีม Marketing</span>
+                                        </div>
+                                        <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs rounded-full font-medium">พรุ่งนี้</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Floating Buddy Element -->
+                <div class="absolute -bottom-10 -right-4 md:-right-10 w-24 md:w-32 animate-bounce-slow" style="animation-duration: 4s;">
+                    <div class="bg-white p-3 rounded-2xl shadow-xl border-2 border-brand-100 transform rotate-6">
+                        <div class="text-4xl text-center">🤖</div>
+                        <div class="text-[10px] font-bold text-center mt-1 text-brand-600">เสร็จแล้ว!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-10 border-y border-gray-100 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">ไว้วางใจโดยทีมชั้นนำทั่วไทย</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Placeholder Logos -->
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-600"><i class="fa-brands fa-google text-2xl"></i> Google</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-600"><i class="fa-brands fa-slack text-2xl"></i> Slack</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-600"><i class="fa-brands fa-spotify text-2xl"></i> Spotify</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-600"><i class="fa-brands fa-dropbox text-2xl"></i> Dropbox</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-bold tracking-wide uppercase text-sm">ทำไมต้อง BuddyWork?</span>
+                <h2 class="mt-2 text-4xl font-bold text-gray-900">เก่งเหมือนโปร แต่เข้าใขง่ายเหมือนเพื่อน</h2>
+                <p class="mt-4 text-lg text-gray-500">เราตัดความยุ่งยากออกไป เหลือไว้แต่สิ่งที่จำเป็น เพื่อให้คุณโฟกัสกับงานที่รักได้อย่างเต็มที่</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="group p-8 rounded-[2rem] bg-brand-50 hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm mb-6 text-brand-500 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">เร็ว และ ลื่นไหล</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        ไม่ต้องรอโหลดหน้านานๆ ระบบของเราถูกออกแบบมาให้ตอบสนองทันทีที่คุณคลิก เหมือนคุยกับเพื่อนที่รู้ใจ
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="group p-8 rounded-[2rem] bg-orange-50 hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm mb-6 text-orange-500 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">แชทในงานได้เลย</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        ไม่ต้องสลับแอปไปมา คุยงาน คอมเมนต์ และส่งไฟล์ได้ในที่เดียว ลดการตกหล่นของข้อมูล
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="group p-8 rounded-[2rem] bg-green-50 hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm mb-6 text-green-500 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">รายงานที่ดูรู้เรื่อง</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        เปลี่ยนตัวเลขน่าปวดหัวให้เป็นกราฟสวยงาม เข้าใจง่าย ดูปุ๊บรู้ปั๊บว่าทีมกำลังไปทิศทางไหน
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-24 bg-gray-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">"ตั้งแต่ใช้ BuddyWork ทีมของเรามีความสุขขึ้น 300%"</h2>
+                    <p class="text-gray-600 text-lg mb-8">
+                        ไม่ได้พูดเกินจริง แต่การมีเครื่องมือที่ดีช่วยลดความเครียดในการตามงานได้เยอะมาก 
+                        UI สวยงาม ใช้งานง่ายจนแทบไม่ต้องสอนพนักงานใหม่เลย
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" class="w-16 h-16 rounded-full bg-white p-1 border border-gray-200">
+                        <div>
+                            <div class="font-bold text-gray-900">คุณนนท์</div>
+                            <div class="text-sm text-gray-500">Project Manager, TechStartup TH</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <!-- Decorative Cards showing friendly UI -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                    <div class="relative bg-white p-6 rounded-3xl shadow-lg border border-gray-100 transform rotate-2 hover:rotate-0 transition duration-300">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-600">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-600 italic">"ชอบฟีเจอร์แจ้งเตือนมาก มันไม่รบกวนแต่ทำให้ไม่ลืมงานสำคัญ ซัพพอร์ตก็ตอบไวสุดๆ เหมือนเพื่อนคุยกัน"</p>
+                                <div class="mt-4 flex text-yellow-400 text-sm">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-brand-600"></div>
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="relative max-w-4xl mx-auto px-4 text-center text-white">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">พร้อมจะมีผู้ช่วยคนใหม่รึยัง?</h2>
+            <p class="text-xl text-brand-100 mb-10">ทดลองใช้งานฟรี 14 วัน ไม่พอใจยินดีคืนเงิน (แต่เรามั่นใจว่าคุณจะรัก)</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="confettiEffect()" class="bg-white text-brand-600 px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:bg-gray-100 hover:scale-105 transition duration-300">
+                    สมัครสมาชิกฟรี
+                </button>
+                <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition duration-300">
+                    ติดต่อฝ่ายขาย
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-16 pb-8 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white text-sm">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <span class="font-bold text-xl text-gray-900">Buddy<span class="text-brand-500">Work</span></span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        แพลตฟอร์มจัดการงานที่ออกแบบด้วยใจ <br>เพื่อให้ทุกคนทำงานได้อย่างมีความสุข
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">สินค้า</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-brand-600">ฟีเจอร์</a></li>
+                        <li><a href="#" class="hover:text-brand-600">ราคา</a></li>
+                        <li><a href="#" class="hover:text-brand-600">อัปเดตใหม่</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">บริษัท</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-brand-600">เกี่ยวกับเรา</a></li>
+                        <li><a href="#" class="hover:text-brand-600">ร่วมงานกับเรา</a></li>
+                        <li><a href="#" class="hover:text-brand-600">ติดต่อ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">ติดตามเรา</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-500 hover:text-white transition">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-500 hover:text-white transition">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-500 hover:text-white transition">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-400">© 2024 BuddyWork Inc. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-400">
+                    <a href="#" class="hover:text-gray-600">นโยบายความเป็นส่วนตัว</a>
+                    <a href="#" class="hover:text-gray-600">ข้อกำหนดการใช้งาน</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Sticky Navbar effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-sm');
+                nav.classList.replace('bg-white/80', 'bg-white/95');
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.classList.replace('bg-white/95', 'bg-white/80');
+            }
+        });
+
+        // Confetti Function for Friendly Interaction
+        function confettiEffect() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#6366f1', '#fb923c', '#f472b6']
+            });
+            
+            // Create a toast notification
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg z-50 animate-bounce transition-all duration-300 flex items-center gap-2';
+            toast.innerHTML = '<span>🚀 ยินดีต้อนรับสู่แก๊งเราครับ!</span>';
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
