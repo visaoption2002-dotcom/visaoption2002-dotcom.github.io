@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisaBuddy – Blueprint</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Thai:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f8ff;
+      --ink:#0f1b40;
+      --muted:#4a5676;
+      --accent:#1a5cff;
+      --accent2:#2ad1ff;
+      --card:#ffffff;
+      --line:#e1e6f5;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:'Noto Sans Thai','Space Grotesk',system-ui,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.8;
+      padding:36px 20px 80px;
+    }
+    .canvas{
+      max-width:1180px;
+      margin:0 auto;
+      background:var(--card);
+      border:2px solid var(--ink);
+      border-radius:22px;
+      box-shadow:12px 12px 0 rgba(26,92,255,0.12);
+      position:relative;
+      overflow:hidden;
+    }
+    .grid{
+      position:absolute;
+      inset:0;
+      background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+      background-size:38px 38px;
+      opacity:0.6;
+      pointer-events:none;
+    }
+    header{
+      position:relative;
+      padding:42px 48px 28px;
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:24px;
+      border-bottom:2px solid var(--ink);
+    }
+    .eyebrow{
+      font-family:'Space Grotesk',sans-serif;
+      letter-spacing:3px;
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+    }
+    h1{
+      font-family:'Space Grotesk',sans-serif;
+      font-size:40px;
+      margin:12px 0 10px;
+      line-height:1.2;
+    }
+    .lede{color:var(--muted);font-size:18px;max-width:600px;}
+    .labels{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 20px;}
+    .label{
+      padding:8px 12px;
+      border:2px solid var(--ink);
+      border-radius:10px;
+      background:var(--card);
+      font-weight:600;
+      box-shadow:6px 6px 0 rgba(15,27,64,0.08);
+    }
+    .actions{display:flex;flex-wrap:wrap;gap:10px;}
+    .btn{
+      padding:12px 14px;
+      border-radius:10px;
+      border:2px solid var(--ink);
+      background:var(--card);
+      font-weight:700;
+      cursor:pointer;
+      transition:transform 0.15s ease,box-shadow 0.15s ease;
+      box-shadow:6px 6px 0 rgba(15,27,64,0.1);
+    }
+    .btn.primary{
+      background:linear-gradient(120deg,var(--accent),var(--accent2));
+      color:#fff;
+      border-color:#0f1b40;
+      box-shadow:6px 6px 0 rgba(26,92,255,0.25);
+    }
+    .btn:hover{transform:translate(-2px,-2px);}
+    .panel{
+      border:2px solid var(--ink);
+      border-radius:14px;
+      padding:16px;
+      box-shadow:10px 10px 0 rgba(15,27,64,0.08);
+      background:linear-gradient(120deg,#fff,rgba(42,209,255,0.12));
+    }
+    .panel h3{font-size:17px;margin-bottom:8px;}
+    .panel p{color:var(--muted);}
+    main{position:relative;padding:28px 48px 48px;}
+    .section{margin-bottom:24px;}
+    .section h2{
+      font-family:'Space Grotesk',sans-serif;
+      font-size:22px;
+      margin-bottom:10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .section h2::before{
+      content:'';
+      width:14px;
+      height:14px;
+      border:2px solid var(--ink);
+      border-radius:4px;
+      background:var(--accent);
+    }
+    .grid-cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:12px;
+    }
+    .card{
+      border:2px solid var(--ink);
+      border-radius:12px;
+      padding:14px;
+      min-height:120px;
+      background:#fff;
+      box-shadow:8px 8px 0 rgba(15,27,64,0.08);
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .card h3{font-size:16px;}
+    .meta{color:var(--muted);font-size:14px;}
+    .timeline{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+      gap:12px;
+      margin-top:10px;
+    }
+    .step{
+      padding:12px;
+      border:2px dashed var(--ink);
+      border-radius:10px;
+      background:rgba(42,209,255,0.06);
+      box-shadow:6px 6px 0 rgba(26,92,255,0.1);
+    }
+    .cta{
+      margin-top:22px;
+      padding:16px;
+      border:2px solid var(--ink);
+      border-radius:14px;
+      background:linear-gradient(120deg,rgba(26,92,255,0.18),rgba(42,209,255,0.2));
+      box-shadow:10px 10px 0 rgba(26,92,255,0.14);
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:12px;
+    }
+    .cta strong{font-size:18px;}
+    @media(max-width:960px){
+      header{grid-template-columns:1fr;padding:28px 24px;}
+      main{padding:22px 24px 32px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="grid"></div>
+    <header>
+      <div>
+        <div class="eyebrow">VisaBuddy / Work and Holiday</div>
+        <h1>แบบแปลนเส้นทางยื่นวีซ่าแบบมีเพื่อนเดินด้วย</h1>
+        <p class="lede">เราวางระบบเหมือนแปลนบ้านที่ตรวจสอบได้ทุกเส้น
+          โปร่งใส ไม่แก้ข้อมูลโดยพลการ และลบข้อมูลหลังทำเสร็จ เพื่อให้คุณเดินทางได้อย่างสบายใจ</p>
+        <div class="labels">
+          <span class="label">PDPA</span>
+          <span class="label">ไม่มีค่าใช้จ่ายแอบแฝง</span>
+          <span class="label">กดโควตา + ส่งเอกสารให้</span>
+        </div>
+        <div class="actions">
+          <button class="btn primary">เริ่มวางแผน</button>
+          <button class="btn">ดูคำถามที่พบบ่อย</button>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>เราทำอะไร</h3>
+        <p>ซ้อมระบบวันจริง กดโควตาและยื่นเอกสารให้ ตรวจทานและลบข้อมูลหลังจบ
+          ทุกขั้นตอนบอกล่วงหน้า ไม่มีเงื่อนไขซ่อน</p>
+      </div>
+    </header>
+    <main>
+      <section class="section">
+        <h2>บริการที่มีให้</h2>
+        <div class="grid-cards">
+          <div class="card">
+            <h3>ทดลองกดโควตา</h3>
+            <p class="meta">ฝึกคลิกและดูจังหวะให้เหมือนวันจริง</p>
+          </div>
+          <div class="card">
+            <h3>FAQ + คู่มือ</h3>
+            <p class="meta">รวมคำถามยอดฮิตของ WAH/WHS พร้อมคำอธิบายสั้น</p>
+          </div>
+          <div class="card">
+            <h3>เครื่องมือปรับรูป</h3>
+            <p class="meta">ได้ไฟล์รูปพร้อมยื่นในไม่กี่วินาที</p>
+          </div>
+          <div class="card">
+            <h3>ยื่นให้จนจบ</h3>
+            <p class="meta">ช่วยกดสมัคร ส่งเอกสาร และแจ้งสถานะ</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>หลักคิดของเรา</h2>
+        <div class="grid-cards">
+          <div class="card">
+            <h3>โปร่งใส</h3>
+            <p class="meta">แจ้งขั้นตอนและค่าใช้จ่ายก่อนเริ่ม ไม่มีค่าเพิ่มกลางทาง</p>
+          </div>
+          <div class="card">
+            <h3>ความปลอดภัย</h3>
+            <p class="meta">ไม่แก้ข้อมูลส่วนตัวโดยไม่ได้รับอนุญาต และลบทิ้งหลังดำเนินการ</p>
+          </div>
+          <div class="card">
+            <h3>ตอบไว</h3>
+            <p class="meta">ทีมเล็กที่คุยได้ตลอด ไม่ทิ้งให้รอคิว</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>แผน 3 ขั้นตอน</h2>
+        <div class="timeline">
+          <div class="step"><b>1) Brief</b> รู้ภาพรวมสิ่งที่ต้องเตรียมและข้อห้าม</div>
+          <div class="step"><b>2) Rehearse</b> ซ้อมกดบนระบบจริงพร้อมเทคนิคเวลา</div>
+          <div class="step"><b>3) Launch</b> กดและส่งเอกสารจริง พร้อมรายงานและลบข้อมูล</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="cta">
+          <div>
+            <strong>แชร์ VisaBuddy ให้เพื่อนที่กำลังหาทางไปต่างแดน</strong>
+            <p>แปลนที่ดีช่วยให้ทุกคนเดินทางถึงฝั่งได้ไวขึ้นและปลอดภัยกว่า</p>
+          </div>
+          <button class="btn primary">แชร์เลย</button>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

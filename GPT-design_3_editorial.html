@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisaBuddy – Editorial Warm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f3ed;
+      --ink:#1d1b24;
+      --muted:#5a5367;
+      --accent:#ff805c;
+      --accent2:#ffd166;
+      --card:#fffaf2;
+      --border:#e6ddcf;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:'Kanit','Manrope',system-ui,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.8;
+      padding:36px 20px 80px;
+    }
+    .shell{
+      max-width:1200px;
+      margin:0 auto;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:28px;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:380px 1fr;
+      min-height:80vh;
+      position:relative;
+      box-shadow:0 30px 90px rgba(0,0,0,0.08);
+    }
+    .blob{
+      position:absolute;
+      width:240px;
+      height:240px;
+      background:radial-gradient(circle at 30% 30%,rgba(255,128,92,0.18),transparent 70%);
+      filter:blur(60px);
+      z-index:0;
+    }
+    .blob.right{right:-40px;top:20px;}
+    .blob.left{left:-40px;bottom:20px;}
+    aside{
+      background:linear-gradient(160deg,#fffaf2,#fff1e0);
+      border-right:1px solid var(--border);
+      padding:42px 36px;
+      position:sticky;
+      top:20px;
+      align-self:start;
+      z-index:1;
+    }
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:3px;
+      font-size:12px;
+      color:var(--muted);
+      font-family:'Manrope',sans-serif;
+    }
+    h1{
+      font-family:'Manrope',sans-serif;
+      font-size:38px;
+      line-height:1.2;
+      margin:14px 0 10px;
+    }
+    .lede{color:var(--muted);font-size:18px;}
+    .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 22px;}
+    .pill{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:14px;
+      color:var(--ink);
+    }
+    .cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      padding:12px 16px;
+      border-radius:12px;
+      border:1px solid var(--ink);
+      background:#fff;
+      cursor:pointer;
+      font-weight:700;
+      letter-spacing:0.2px;
+      transition:transform 0.2s ease,box-shadow 0.2s ease;
+    }
+    .btn.primary{
+      background:var(--ink);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(29,27,36,0.25);
+    }
+    .btn:hover{transform:translateY(-2px);}
+    main{
+      padding:42px 40px 48px;
+      position:relative;
+      z-index:1;
+    }
+    .section{margin-bottom:28px;border-bottom:1px solid var(--border);padding-bottom:24px;}
+    .section:last-child{border-bottom:none;}
+    .section h2{
+      font-family:'Manrope',sans-serif;
+      font-size:24px;
+      margin-bottom:10px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:14px;
+      margin-top:12px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:16px;
+      min-height:140px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    }
+    .card h3{font-size:17px;}
+    .meta{color:var(--muted);font-size:15px;}
+    .list{display:grid;gap:12px;margin-top:10px;}
+    .item{
+      background:linear-gradient(120deg,#fff,rgba(255,214,102,0.16));
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:14px 16px;
+    }
+    .callout{
+      background:linear-gradient(120deg,rgba(255,128,92,0.18),rgba(255,214,102,0.22));
+      border:1px solid rgba(29,27,36,0.08);
+      border-radius:18px;
+      padding:18px;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:12px;
+      color:#1d1b24;
+    }
+    .callout strong{font-size:18px;}
+    @media(max-width:1040px){
+      .shell{grid-template-columns:1fr;}
+      aside{position:relative;border-right:none;border-bottom:1px solid var(--border);}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="blob right"></div>
+    <div class="blob left"></div>
+    <aside>
+      <div class="eyebrow">VisaBuddy • Work and Holiday</div>
+      <h1>เพื่อนที่ทำให้วันยื่นจริงดูไม่ซับซ้อน</h1>
+      <p class="lede">VisaBuddy เกิดขึ้นเพราะเราไม่อยากเห็นใครถูกหลอกหรือกังวลกับข้อมูลส่วนตัว
+        เราจึงออกแบบบริการที่โปร่งใส ซ้อมได้จริง และลบข้อมูลทันทีหลังเสร็จงาน</p>
+      <div class="pill-row">
+        <span class="pill">PDPA</span>
+        <span class="pill">ไม่บวกค่าใช้จ่ายซ่อน</span>
+        <span class="pill">กดโควตา WAH / WHS</span>
+      </div>
+      <div class="cta">
+        <button class="btn primary">จองคิวซ้อม</button>
+        <button class="btn">อ่าน FAQ</button>
+      </div>
+    </aside>
+    <main>
+      <section class="section">
+        <h2>บริการแบบจับต้องได้</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>ทดลองระบบวันจริง</h3>
+            <p class="meta">ซ้อมคลิกยื่นและกรอกข้อมูลเหมือนสถานการณ์จริง เพื่อให้มือไม่สั่นในวันที่ต้องกด</p>
+          </div>
+          <div class="card">
+            <h3>คลังคำถาม WAH / WHS</h3>
+            <p class="meta">อธิบายด้วยภาษาง่าย ๆ ว่าต้องเตรียมอะไรบ้างและอะไรคือข้อผิดพลาดที่พบบ่อย</p>
+          </div>
+          <div class="card">
+            <h3>ปรับรูปให้อัตโนมัติ</h3>
+            <p class="meta">ได้ไฟล์พร้อมยื่นตามสเปกวีซ่าทันที ไม่ต้องห่วงเรื่องขนาดหรือความคมชัด</p>
+          </div>
+          <div class="card">
+            <h3>ช่วยกดยื่นและติดตาม</h3>
+            <p class="meta">อยู่กับคุณจนส่งเอกสารครบ และแจ้งทุกสถานะอย่างตรงไปตรงมา</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>เรายืนอยู่บน 3 หลัก</h2>
+        <div class="list">
+          <div class="item"><b>ความจริงใจ</b> บอกขั้นตอนและค่าบริการก่อนเริ่ม ไม่มีเงื่อนไขแอบแฝง</div>
+          <div class="item"><b>ความปลอดภัย</b> ไม่แตะข้อมูลโดยไม่ได้รับอนุญาต และลบทิ้งหลังเสร็จภารกิจ</div>
+          <div class="item"><b>ความพร้อมใช้</b> ทุกเครื่องมือออกแบบจากประสบการณ์ตรงของผู้สมัคร</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>เส้นทางที่เราจะพาไป</h2>
+        <div class="list">
+          <div class="item"><b>Start</b> ฟังเป้าหมายและกำหนดสิ่งที่ต้องเตรียม</div>
+          <div class="item"><b>Practice</b> ซ้อมกดยื่นบนระบบเดียวกับวันจริง</div>
+          <div class="item"><b>Submit</b> กดสมัครและส่งเอกสาร พร้อมตรวจซ้ำเพื่อความชัวร์</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="callout">
+          <div>
+            <strong>แบ่งปัน VisaBuddy ให้เพื่อนที่มีความฝันเดียวกัน</strong>
+            <p>ยิ่งแชร์มาก ยิ่งมีคนไปถึงต่างแดนโดยไม่ต้องเสี่ยงกับบริการที่ไม่โปร่งใส</p>
+          </div>
+          <button class="btn primary">แชร์เลย</button>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisaBuddy – Neon Grid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#03040b;
+      --card:#0b0f1d;
+      --line:rgba(255,255,255,0.06);
+      --primary:#6ef5c2;
+      --secondary:#5b8ef4;
+      --text:#e9ecf7;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      background:radial-gradient(circle at 20% 20%,rgba(94,244,181,0.16),transparent 30%),radial-gradient(circle at 80% 0%,rgba(91,142,244,0.22),transparent 26%),radial-gradient(circle at 80% 80%,rgba(255,255,255,0.04),transparent 30%),var(--bg);
+      color:var(--text);
+      font-family:'IBM Plex Sans Thai','Sora',system-ui,sans-serif;
+      min-height:100vh;
+      padding:32px 22px 80px;
+    }
+    .frame{
+      max-width:1200px;
+      margin:0 auto;
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      position:relative;
+      background:linear-gradient(150deg,rgba(91,142,244,0.08),rgba(11,15,29,0.9));
+      box-shadow:0 30px 120px rgba(0,0,0,0.65);
+    }
+    .grid-lines{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(transparent 96%,rgba(110,245,194,0.08) 100%),
+        linear-gradient(90deg,transparent 96%,rgba(110,245,194,0.08) 100%);
+      background-size:100% 42px,42px 100%;
+      mask-image:radial-gradient(circle at 50% 30%,black,transparent 70%);
+      opacity:0.5;
+      pointer-events:none;
+    }
+    header{
+      position:relative;
+      padding:46px 52px 20px;
+      display:grid;
+      grid-template-columns:1.2fr 1fr;
+      gap:28px;
+      align-items:center;
+    }
+    .eyebrow{
+      font-family:'Sora',sans-serif;
+      color:rgba(233,236,247,0.7);
+      text-transform:uppercase;
+      letter-spacing:3px;
+      font-size:12px;
+    }
+    h1{
+      font-family:'Sora',sans-serif;
+      font-size:46px;
+      margin:16px 0 10px;
+      letter-spacing:-0.02em;
+    }
+    .lede{color:#cbd3e8;font-size:18px;max-width:620px;line-height:1.8;}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+    .btn{
+      padding:13px 18px;
+      border-radius:12px;
+      border:1px solid rgba(233,236,247,0.12);
+      background:rgba(255,255,255,0.04);
+      color:var(--text);
+      font-weight:700;
+      letter-spacing:0.3px;
+      cursor:pointer;
+      transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease;
+    }
+    .btn.primary{
+      background:linear-gradient(120deg,var(--primary),var(--secondary));
+      color:#041425;
+      box-shadow:0 14px 38px rgba(110,245,194,0.35);
+      border:none;
+    }
+    .btn:hover{transform:translateY(-2px);}
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+    .stat{
+      background:var(--card);
+      padding:14px 16px;
+      border-radius:12px;
+      border:1px solid var(--line);
+    }
+    .stat b{font-size:20px;display:block;}
+    .stat span{color:#9aacd4;font-size:14px;}
+    .panel{
+      background:rgba(11,15,29,0.9);
+      border:1px solid rgba(233,236,247,0.12);
+      border-radius:16px;
+      padding:20px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.45);
+    }
+    .panel h3{font-size:18px;margin-bottom:10px;}
+    .panel p{color:#c8d0ea;}
+    main{padding:12px 52px 52px;position:relative;z-index:1;}
+    .section{margin-top:32px;}
+    .section h2{font-family:'Sora',sans-serif;font-size:24px;margin-bottom:12px;}
+    .columns{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:16px;
+    }
+    .card{
+      background:linear-gradient(130deg,rgba(110,245,194,0.05),rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      padding:16px;
+      min-height:150px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      transition:border-color 0.2s ease,transform 0.2s ease;
+    }
+    .card:hover{border-color:rgba(110,245,194,0.4);transform:translateY(-2px);}
+    .card h3{font-size:16px;}
+    .meta{color:#9aacd4;font-size:14px;}
+    .list{display:grid;gap:10px;margin-top:12px;}
+    .item{
+      padding:14px;
+      border-radius:14px;
+      border:1px dashed rgba(233,236,247,0.15);
+      background:rgba(255,255,255,0.02);
+    }
+    .cta{
+      margin-top:28px;
+      padding:18px;
+      border-radius:18px;
+      background:linear-gradient(120deg,rgba(110,245,194,0.25),rgba(91,142,244,0.25));
+      color:#041425;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:14px;
+      box-shadow:0 18px 50px rgba(91,142,244,0.25);
+    }
+    .cta strong{font-size:19px;}
+    @media(max-width:960px){
+      header{grid-template-columns:1fr;padding:32px 28px;}
+      main{padding:0 28px 36px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="grid-lines"></div>
+    <header>
+      <div>
+        <div class="eyebrow">VisaBuddy / WAH • WHS</div>
+        <h1>พาไฟเขียววีซ่าด้วยระบบที่ซ้อมได้จริง</h1>
+        <p class="lede">เราช่วยให้เส้นทาง Work and Holiday ไม่สะดุด ด้วยบริการที่โปร่งใส ตั้งแต่ตอบคำถาม
+          ซ้อมกดโควตา ไปจนถึงยื่นสมัครจริง โดยเคารพข้อมูลและไม่บวกค่าใช้จ่ายแอบแฝง</p>
+        <div class="hero-actions">
+          <button class="btn primary">ดูบริการทั้งหมด</button>
+          <button class="btn">คุยกับทีมงานทันที</button>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>โปร่งใส</b><span>ไม่แก้ข้อมูล ไม่เก็บซ่อนค่าใช้จ่าย</span></div>
+          <div class="stat"><b>PDPA</b><span>เก็บ-ลบข้อมูลตามมาตรฐาน</span></div>
+          <div class="stat"><b>WAH/WHS</b><span>กดโควตาและยื่นให้ครบ</span></div>
+          <div class="stat"><b>ตอบเร็ว</b><span>ทีมเล็ก เดินเคียงข้างแบบเรียลไทม์</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>เราทำอะไรให้คุณได้</h3>
+        <p>คัดทุกขั้นตอนที่จำเป็นของการสมัคร WAH / WHS มาร้อยเรียงใหม่ให้สั้นลง
+          ใช้เครื่องมือเดียวกันกับวันจริงเพื่อให้มั่นใจว่า คุณจะไม่เจอความประหลาดใจในวันสำคัญ</p>
+      </div>
+    </header>
+    <main>
+      <section class="section">
+        <h2>บริการหลัก</h2>
+        <div class="columns">
+          <div class="card">
+            <h3>ทดลองระบบกดโควตา</h3>
+            <p class="meta">ซ้อมการยื่นและกดคลิกเหมือนวันจริง ลดความตื่นเต้น และรู้จังหวะล่วงหน้า</p>
+          </div>
+          <div class="card">
+            <h3>คลัง FAQ + แนวทาง</h3>
+            <p class="meta">คำถามยอดฮิตของ WAH/WHS พร้อมภาษาที่เข้าใจง่าย</p>
+          </div>
+          <div class="card">
+            <h3>ปรับขนาดรูปอัตโนมัติ</h3>
+            <p class="meta">ได้รูปพร้อมยื่นภายในไม่กี่วินาที</p>
+          </div>
+          <div class="card">
+            <h3>ยื่นสมัครและติดตาม</h3>
+            <p class="meta">ช่วยกดโควตา ส่งเอกสาร และแจ้งเตือนทุกสถานะ</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>สิ่งที่เราให้ความสำคัญ</h2>
+        <div class="columns">
+          <div class="card">
+            <h3>ความปลอดภัยของข้อมูล</h3>
+            <p class="meta">ลบข้อมูลหลังเสร็จงาน และไม่ปรับแก้โดยพลการ</p>
+          </div>
+          <div class="card">
+            <h3>ความโปร่งใส</h3>
+            <p class="meta">แจ้งขั้นตอนและค่าใช้จ่ายตรงไปตรงมา ไม่มีตัวพิเศษซ่อนอยู่</p>
+          </div>
+          <div class="card">
+            <h3>ความเร็วแบบมนุษย์</h3>
+            <p class="meta">ทีมเล็กตอบเร็ว มีที่ปรึกษาเป็นเพื่อนมากกว่าผู้ให้บริการ</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>เส้นทาง 3 สเต็ป</h2>
+        <div class="list">
+          <div class="item"><b>1) เข้าใจภาพรวม</b> นัดคุยสั้น ๆ รวบตารางเวลา สิ่งที่ต้องเตรียม และข้อห้าม</div>
+          <div class="item"><b>2) ซ้อมบนระบบจริง</b> ทดลองกดโควตา ลองแก้สถานการณ์จำลอง เพื่อให้รู้ทันก่อนถึงวันจริง</div>
+          <div class="item"><b>3) ยื่นและติดตาม</b> เราช่วยกดและยื่น พร้อมแจ้งเตือนสถานะและลบข้อมูลหลังเสร็จสิ้น</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="cta">
+          <div>
+            <strong>แชร์ VisaBuddy ให้เพื่อนที่กำลังจะสมัคร WAH/WHS</strong>
+            <p>ยิ่งมีข้อมูลโปร่งใส คนฝันไกลก็ยิ่งไปถึงเร็วขึ้น</p>
+          </div>
+          <button class="btn primary">แชร์ตอนนี้</button>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
