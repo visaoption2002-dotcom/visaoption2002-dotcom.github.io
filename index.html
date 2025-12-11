@@ -1,458 +1,204 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisaBuddy - Editorial</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <title>Design Repository - Liquid Glass</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-        :root {
-            --bg-paper: #FAFAF5;
-            --text-dark: #2C2C2C;
-            --primary: #1B4D3E;
-            /* Deep Green */
-            --accent: #D4A373;
-            /* Gold/Tan */
-            --light-gray: #E5E5E0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--bg-paper);
-            color: var(--text-dark);
-            line-height: 1.8;
+            font-family: 'Outfit', sans-serif;
+            background: #0f172a;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
+        /* Animated Background Blobs */
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
+            animation: float 10s infinite alternate;
+        }
+        .blob-1 { top: 0; left: 0; width: 300px; height: 300px; background: #8b5cf6; }
+        .blob-2 { bottom: 0; right: 0; width: 400px; height: 400px; background: #ec4899; animation-delay: -2s; }
+        .blob-3 { top: 50%; left: 50%; width: 350px; height: 350px; background: #3b82f6; transform: translate(-50%, -50%); animation-duration: 15s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, -30px) scale(1.1); }
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
+        /* Liquid Glass Effect Class */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Nav */
-        nav {
-            padding: 2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--light-gray);
-            position: sticky;
-            top: 0;
-            background: var(--bg-paper);
-            z-index: 100;
-        }
-
-        .brand {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-style: italic;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .nav-items {
-            display: flex;
-            gap: 3rem;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: color 0.3s;
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-        }
-
-        .cta-small {
-            border: 1px solid var(--primary);
-            padding: 10px 20px;
-            color: var(--primary);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-
-        .cta-small:hover {
-            background: var(--primary);
-            color: #fff;
-        }
-
-        /* Hero */
-        .hero {
-            padding: 6rem 5%;
-            text-align: center;
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
             position: relative;
+            overflow: hidden;
         }
 
-        .hero-layout {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text {
-            text-align: left;
-        }
-
-        .issue-no {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        h1 {
-            font-size: 5rem;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            color: var(--primary);
-        }
-
-        h1 i {
-            font-weight: 400;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 500px;
-            margin-bottom: 3rem;
-            color: #555;
-            font-weight: 300;
-        }
-
-        .hero-img {
-            width: 100%;
-            height: 500px;
-            background: #ddd;
-            object-fit: cover;
-            filter: grayscale(20%);
-            transition: filter 0.5s;
-        }
-
-        .hero-img:hover {
-            filter: grayscale(0%);
-        }
-
-        /* Image Placeholder for Editorial */
-        .img-placeholder {
-            width: 100%;
-            height: 100%;
-            background: #dcdcdc url('old_vertion/assets/main/band.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-style: italic;
-        }
-
-        /* Features - Magazine Layout */
-        .features {
-            padding: 8rem 0;
-            background: #fff;
-        }
-
-        .chapter-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 5rem;
-            color: var(--primary);
-            font-style: italic;
-        }
-
-        .feature-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            margin-bottom: 6rem;
-            align-items: center;
-        }
-
-        .feature-row:nth-child(even) .feature-text {
-            order: -1;
-            text-align: right;
-        }
-
-        .feature-row:nth-child(even) .feature-content-wrapper {
-            padding-right: 4rem;
-            padding-left: 0;
-        }
-
-        .feature-img-box {
-            height: 400px;
-            background: #eee;
-            position: relative;
-        }
-
-        .feature-img-box::after {
+        .glass-btn::before {
             content: '';
             position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 100%;
-            height: 100%;
-            border: 1px solid var(--primary);
-            z-index: 0;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-25deg);
+            transition: 0.5s;
         }
 
-        .feature-img {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            z-index: 1;
-            background: #ccc;
-            /* Using solid colors for abstract feel if image missing */
-            object-fit: cover;
+        .glass-btn:hover::before {
+            left: 100%;
         }
 
-        .feature-content-wrapper {
-            padding-left: 4rem;
-        }
-
-        .feature-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            color: var(--light-gray);
-            line-height: 1;
-            margin-bottom: -20px;
-            position: relative;
-            z-index: -1;
-        }
-
-        .feature-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .feature-text p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 400px;
-            display: inline-block;
-        }
-
-        /* Quotes */
-        .quote-section {
-            padding: 6rem 5%;
-            background: var(--primary);
-            color: #fff;
-            text-align: center;
-        }
-
-        .quote {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-style: italic;
-            max-width: 900px;
-            margin: 0 auto 2rem;
-            line-height: 1.4;
-        }
-
-        .author {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
-        }
-
-        /* Contact/Footer */
-        .contact {
-            padding: 8rem 5%;
-            text-align: center;
-        }
-
-        .contact p {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-        }
-
-        .btn-large {
-            display: inline-block;
-            background: var(--text-dark);
-            color: #fff;
-            padding: 20px 50px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: opacity 0.3s;
-        }
-
-        .btn-large:hover {
-            opacity: 0.8;
-            color: #fff;
-        }
-
-        .footer-nav {
-            margin-top: 4rem;
-            padding-top: 4rem;
-            border-top: 1px solid var(--light-gray);
-            display: flex;
-            justify-content: space-between;
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        @media(max-width: 768px) {
-            h1 {
-                font-size: 3rem;
-            }
-
-            .hero-layout,
-            .feature-row {
-                grid-template-columns: 1fr;
-            }
-
-            .feature-row:nth-child(even) .feature-text {
-                order: 1;
-                text-align: left;
-            }
-
-            .feature-content-wrapper,
-            .feature-row:nth-child(even) .feature-content-wrapper {
-                padding: 2rem 0;
-            }
-
-            .feature-img-box {
-                margin-bottom: 2rem;
-                height: 300px;
-            }
-
-            .nav-items {
-                display: none;
-            }
+        .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 
+                        0 0 15px rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
+<body class="flex items-center justify-center py-20 px-4 relative">
 
-<body>
-    <nav>
-        <div class="brand">VisaBuddy.</div>
-        <div class="nav-items">
-            <a href="#story" class="nav-link">Our Story</a>
-            <a href="#services" class="nav-link">Services</a>
-            <a href="#journal" class="nav-link">Journal</a>
+    <!-- Background Elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Main Container -->
+    <div class="glass-panel w-full max-w-2xl rounded-3xl p-8 relative z-10 text-white">
+        
+        <!-- Header -->
+        <div class="text-center mb-10">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full glass-panel mb-4 text-3xl text-cyan-300 shadow-[0_0_20px_rgba(103,232,249,0.3)]">
+                <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <h1 class="text-4xl font-bold tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
+                Design Repository
+            </h1>
+            <p class="text-white/60 font-light">รวมผลงานออกแบบ UI Design (Liquid Glass Style)</p>
         </div>
-        <a href="#contact" class="cta-small">Begin Journey</a>
-    </nav>
 
-    <div class="container">
-        <section class="hero">
-            <div class="hero-layout">
-                <div class="hero-text">
-                    <span class="issue-no">The WAH Collection 2025</span>
-                    <h1>Your Journey <br><i>Begins Here</i></h1>
-                    <p>Experience the freedom of Working Holiday with a partner who understands the art of precision and
-                        care. VisaBuddy ensures your path is clear.</p>
-                    <a href="#contact" class="cta-small"
-                        style="background:var(--primary); color:#fff; padding: 15px 30px;">Start Now</a>
-                </div>
-                <div class="hero-img-box">
-                    <!-- Placeholder that looks like a high-end photo -->
-                    <div class="img-placeholder" style="height: 600px; background-color: #d8d8d8;">
-                        <img src="old_vertion/assets/main/band.jpg" alt="Travel"
-                            style="width:100%; height:100%; object-fit:cover;">
+        <!-- Links Grid -->
+        <div class="grid gap-4">
+            
+            <!-- Link 1 -->
+            <a href="https://visaoption2002-dotcom.github.io/GPT-design_2_neon_grid.html" target="_blank" class="glass-btn group block rounded-xl p-4 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-300 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-border-all"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">1. Neon Grid</h3>
+                        <p class="text-xs text-purple-200/60">GPT-design_2_neon_grid.html</p>
                     </div>
                 </div>
-            </div>
-        </section>
+                <i class="fa-solid fa-arrow-up-right-from-square text-white/30 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- Link 2 -->
+            <a href="https://visaoption2002-dotcom.github.io/GPT-design_3_editorial.html" target="_blank" class="glass-btn group block rounded-xl p-4 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-pink-500/20 flex items-center justify-center text-pink-300 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">2. Editorial Style</h3>
+                        <p class="text-xs text-pink-200/60">GPT-design_3_editorial.html</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-white/30 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- Link 3 -->
+            <a href="https://visaoption2002-dotcom.github.io/GPT-design_5_blueprint.html" target="_blank" class="glass-btn group block rounded-xl p-4 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-300 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">3. Blueprint Technical</h3>
+                        <p class="text-xs text-blue-200/60">GPT-design_5_blueprint.html</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-white/30 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- Link 4 -->
+            <a href="https://visaoption2002-dotcom.github.io/ModernSaaS.html" target="_blank" class="glass-btn group block rounded-xl p-4 flex items-center justify-between border-l-4 border-l-cyan-400">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-300 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">4. Modern SaaS</h3>
+                        <p class="text-xs text-cyan-200/60">ModernSaaS.html</p>
+                    </div>
+                </div>
+                <span class="text-xs font-bold bg-cyan-500/20 text-cyan-300 px-2 py-1 rounded">New</span>
+            </a>
+
+            <!-- Link 5 -->
+            <a href="https://visaoption2002-dotcom.github.io/design_3_clean_modern.html" target="_blank" class="glass-btn group block rounded-xl p-4 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-300 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">5. Clean Modern</h3>
+                        <p class="text-xs text-emerald-200/60">design_3_clean_modern.html</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-white/30 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- Link 6 -->
+            <a href="https://visaoption2002-dotcom.github.io/design_4_aurora.html" target="_blank" class="glass-btn group block rounded-xl p-4 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-300 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">6. Aurora Effect</h3>
+                        <p class="text-xs text-indigo-200/60">design_4_aurora.html</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-white/30 group-hover:text-white transition-colors"></i>
+            </a>
+
+
+
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-8 text-center border-t border-white/10 pt-6">
+            <p class="text-white/40 text-sm">© VisaOption2002 Designs</p>
+        </div>
     </div>
 
-    <section class="features" id="story">
-        <h2 class="chapter-title">The Philosophy</h2>
-
-        <div class="container">
-            <!-- Feature 1 -->
-            <div class="feature-row">
-                <div class="feature-img-box">
-                    <div class="feature-img" style="background: #E0E1DD;"></div>
-                </div>
-                <div class="feature-content-wrapper feature-text">
-                    <div class="feature-num">01</div>
-                    <h3>Transparency</h3>
-                    <p>We believe in absolute clarity. Your data is treated with the utmost respect, adhering strictly
-                        to PDPA standards. It disappears when our work is done.</p>
-                </div>
-            </div>
-
-            <!-- Feature 2 -->
-            <div class="feature-row">
-                <div class="feature-img-box">
-                    <div class="feature-img" style="background: #778DA9;"></div>
-                </div>
-                <div class="feature-content-wrapper feature-text">
-                    <div class="feature-num">02</div>
-                    <h3>Certainty</h3>
-                    <p>In a world of variables, our automated systems provide a constant reliable force. High-speed
-                        execution for your important moments.</p>
-                </div>
-            </div>
-
-            <!-- Feature 3 -->
-            <div class="feature-row">
-                <div class="feature-img-box">
-                    <div class="feature-img" style="background: #415A77;"></div>
-                </div>
-                <div class="feature-content-wrapper feature-text">
-                    <div class="feature-num">03</div>
-                    <h3>Ownership</h3>
-                    <p>Your journey belongs to you. We empower you by using your personal email, giving you full control
-                        and ownership of your application credentials.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="quote-section">
-        <div class="container">
-            <p class="quote">"Travel is the only thing you buy that makes you richer."</p>
-            <span class="author">— Anonymous</span>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <h2 class="chapter-title" style="margin-bottom: 2rem;">Ready to Depart?</h2>
-        <p>Our concierge team is waiting to assist you with your Visa requirements.</p>
-        <div style="display: flex; justify-content: center; gap: 20px;">
-            <a href="https://line.me/R/ti/p/@166epsjo" class="btn-large">Message via LINE</a>
-            <a href="https://x.com/visa_buddy" class="btn-large"
-                style="background: white; color: var(--text-dark); border: 1px solid var(--text-dark)">Twitter / X</a>
-        </div>
-
-        <div class="footer-nav">
-            <div>© 2025 VisaBuddy</div>
-            <div>Designed for Dreamers</div>
-            <div>Bangkok, Thailand</div>
-        </div>
-    </section>
 </body>
-
 </html>
