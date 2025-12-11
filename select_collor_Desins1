@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opus & GPT Blue Themes (1–20)</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            padding: 2rem;
+            background: #0b1120; /* แบ็กกราวด์มืดขึ้น */
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        p.subtitle {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            background: #ffffff;
+        }
+
+        .option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            border-color: #3b82f6;
+        }
+
+        .swatches {
+            display: flex;
+            gap: 5px;
+        }
+
+        .swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .label {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎨 Blue Theme Variations (1–20)</h1>
+        <p class="subtitle">
+            1–10: GPT Blue Series · 11–20: Opus Blue Series
+        </p>
+
+        <div class="grid">
+            <!-- 1–10 GPT Blue Series -->
+            <div class="label">1–10: GPT Blue Series</div>
+
+            <a href="https://visaoption2002-dotcom.github.io/GPT-blue_01_deep.html" class="option" target="_blank">
+                1. Deep Blue (Deep / หรูหรา มืดสุด)
+                <div class="swatches">
+                    <div class="swatch" style="background:#0a192f"></div>
+                    <div class="swatch" style="background:#64ffda"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/GPT-blue_02_cobalt.html" class="option" target="_blank">
+                2. Cobalt Blue (สด เข้ม เทคโนโลยี)
+                <div class="swatches">
+                    <div class="swatch" style="background:#000000"></div>
+                    <div class="swatch" style="background:#2962ff"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/GPT-blue_03_royal.html" class="option" target="_blank">
+                3. Royal Blue (ม่วงน้ำเงิน หรูหรา Bold)
+                <div class="swatches">
+                    <div class="swatch" style="background:#1a237e"></div>
+                    <div class="swatch" style="background:#ffeb3b"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/GPT-blue_04_sky.html" class="option" target="_blank">
+                4. Sky Blue (ฟ้าอ่อน สดใส)
+                <div class="swatches">
+                    <div class="swatch" style="background:#e3f2fd"></div>
+                    <div class="swatch" style="background:#2196f3"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/GPT-blue_05_steel.html" class="option" target="_blank">
+                5. Steel Blue (เทาน้ำเงิน Professional)
+                <div class="swatches">
+                    <div class="swatch" style="background:#eceff1"></div>
+                    <div class="swatch" style="background:#546e7a"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/GPT-blue_06_teal.html" class="option" target="_blank">
+                6. Teal Blue (ฟ้าเขียว ทันสมัย)
+                <div class="swatches">
+                    <div class="swatch" style="background:#134e4a"></div>
+                    <div class="swatch" style="background:#2dd4bf"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/GPT-blue_07_midnight.html" class="option" target="_blank">
+                7. Midnight Blue (กลางคืน Contrast สูง)
+                <div class="swatches">
+                    <div class="swatch" style="background:#020c1b"></div>
+                    <div class="swatch" style="background:#ffffff"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/GPT-blue_08_powder.html" class="option" target="_blank">
+                8. Powder Blue (อ่อนนุ่ม สบายตา)
+                <div class="swatches">
+                    <div class="swatch" style="background:#fdfdfe"></div>
+                    <div class="swatch" style="background:#93c5fd"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/GPT-blue_09_indigo.html" class="option" target="_blank">
+                9. Indigo Blue (น้ำเงินอมม่วง ลึก มีมิติ)
+                <div class="swatches">
+                    <div class="swatch" style="background:#1e1b4b"></div>
+                    <div class="swatch" style="background:#4f46e5"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/GPT-blue_10_ice.html" class="option" target="_blank">
+                10. Ice Blue (ขาวฟ้า สะอาดตา)
+                <div class="swatches">
+                    <div class="swatch" style="background:#fdfdfe"></div>
+                    <div class="swatch" style="background:#3b82f6"></div>
+                </div>
+            </a>
+
+            <!-- 11–20 Opus Blue Series -->
+            <div class="label" style="margin-top:1rem;">11–20: Opus Blue Series</div>
+
+            <a href="https://visaoption2002-dotcom.github.io/opus_1.html" class="option" target="_blank">
+                11. Deep Navy Blue (มืดสุด ดูหรูหรา)
+                <div class="swatches">
+                    <div class="swatch" style="background:#0a192f"></div>
+                    <div class="swatch" style="background:#64ffda"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/opus_2.html" class="option" target="_blank">
+                12. Electric Blue (นีออน เทคโนโลยี)
+                <div class="swatches">
+                    <div class="swatch" style="background:#000000"></div>
+                    <div class="swatch" style="background:#2962ff"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/opus_3.html" class="option" target="_blank">
+                13. Sky Blue (ฟ้าอ่อน สดใส)
+                <div class="swatches">
+                    <div class="swatch" style="background:#e3f2fd"></div>
+                    <div class="swatch" style="background:#2196f3"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/opus_4.html" class="option" target="_blank">
+                14. Corporate Blue (องค์กร น่าเชื่อถือ)
+                <div class="swatches">
+                    <div class="swatch" style="background:#f4f6f8"></div>
+                    <div class="swatch" style="background:#0056b3"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/opus_5.html" class="option" target="_blank">
+                15. Teal Blue (ฟ้าเขียว ทันสมัย)
+                <div class="swatches">
+                    <div class="swatch" style="background:#134e4a"></div>
+                    <div class="swatch" style="background:#2dd4bf"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/opus_6.html" class="option" target="_blank">
+                16. Midnight Blue (กลางคืน Contrast สูง)
+                <div class="swatches">
+                    <div class="swatch" style="background:#020c1b"></div>
+                    <div class="swatch" style="background:#ffffff"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/opus_7.html" class="option" target="_blank">
+                17. Ice Blue (ขาวฟ้า สะอาดตา)
+                <div class="swatches">
+                    <div class="swatch" style="background:#fdfdfe"></div>
+                    <div class="swatch" style="background:#3b82f6"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/opus_8.html" class="option" target="_blank">
+                18. Ocean Blue (ทะเล Gradient)
+                <div class="swatches">
+                    <div class="swatch" style="background:linear-gradient(to bottom, #001219, #005f73)"></div>
+                    <div class="swatch" style="background:#94d2bd"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/opus_9.html" class="option" target="_blank">
+                19. Slate Blue (เทาน้ำเงิน Professional)
+                <div class="swatches">
+                    <div class="swatch" style="background:#eceff1"></div>
+                    <div class="swatch" style="background:#546e7a"></div>
+                </div>
+            </a>
+
+            <a href="https://visaoption2002-dotcom.github.io/opus_10.html" class="option" target="_blank">
+                20. Royal Blue (ม่วงน้ำเงิน Bold)
+                <div class="swatches">
+                    <div class="swatch" style="background:#1a237e"></div>
+                    <div class="swatch" style="background:#ffeb3b"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
