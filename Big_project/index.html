@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Zeyna-Inspired Landing (Static)</title>
+
+  <!-- Fonts (safe to swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- Preloader -->
+  <div class="loader" role="status" aria-live="polite" aria-label="Loading">
+    <div class="loader__inner">
+      <div class="loader__title">LOADING, PLEASE WAIT</div>
+      <div class="loader__meter">
+        <div class="loader__bar"></div>
+      </div>
+      <div class="loader__pct"><span id="loaderPct">0</span>%</div>
+
+      <div class="loader__marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>MADE FOR; AGENCIES</span>
+          <span>COMPANIES</span>
+          <span>STORES</span>
+          <span>STARTUPS</span>
+          <span>FREELANCERS</span>
+          <span>ENTREPRENEURS</span>
+          <span>DESIGNERS</span>
+          <span>AGENCIES</span>
+          <span>MADE FOR; AGENCIES</span>
+          <span>COMPANIES</span>
+          <span>STORES</span>
+          <span>STARTUPS</span>
+          <span>FREELANCERS</span>
+          <span>ENTREPRENEURS</span>
+          <span>DESIGNERS</span>
+          <span>AGENCIES</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Nav -->
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" data-cursor="link">
+      <span class="brand__mark">Z</span>
+      <span class="brand__text">Zeyna-Inspired</span>
+    </a>
+
+    <nav class="topbar__mini" aria-label="Discover">
+      <a href="#demos" class="mini" data-cursor="link">
+        <span class="mini__label">Discover</span>
+        <span class="mini__value">Pre-Built Sites <b>30</b></span>
+      </a>
+      <a href="#stats" class="mini" data-cursor="link">
+        <span class="mini__label">Discover</span>
+        <span class="mini__value">Inner Pages <b>170</b></span>
+      </a>
+      <a href="#features" class="mini" data-cursor="link">
+        <span class="mini__label">Discover</span>
+        <span class="mini__value">Features</span>
+      </a>
+    </nav>
+
+    <button class="menuBtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuOverlay" data-cursor="button">
+      <span class="menuBtn__label" id="menuBtnLabel">MENU</span>
+      <span class="menuBtn__hint">☰</span>
+    </button>
+  </header>
+
+  <!-- Fullscreen Menu Overlay -->
+  <aside class="menu" id="menuOverlay" aria-hidden="true">
+    <div class="menu__panel">
+      <div class="menu__top">
+        <div class="menu__title">MENU</div>
+        <button class="menu__close" id="menuClose" type="button" data-cursor="button">CLOSE ✕</button>
+      </div>
+
+      <div class="menu__grid">
+        <a class="menu__item" href="#features" data-cursor="link">Elements</a>
+        <a class="menu__item" href="#stats" data-cursor="link">Pages</a>
+        <a class="menu__item" href="#commerce" data-cursor="link">Sell Online</a>
+        <a class="menu__item" href="#demos" data-cursor="link">Portfolio</a>
+        <a class="menu__item" href="#cta" data-cursor="link">Blog</a>
+      </div>
+
+      <div class="menu__meta">
+        <div class="pill">Smooth Scroll</div>
+        <div class="pill">Interactive Cursor</div>
+        <div class="pill">Page Loader</div>
+        <div class="pill">Transitions</div>
+      </div>
+    </div>
+    <div class="menu__backdrop" id="menuBackdrop" aria-hidden="true"></div>
+  </aside>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <div class="hero__kicker">Multi-Purpose Creative Landing</div>
+        <h1 class="hero__title">
+          Pushing the limits<br />of creativity.
+        </h1>
+        <p class="hero__sub">
+          A sleek, modern, scroll-driven landing with bold typography, counters, filters, and a fullscreen menu.
+        </p>
+
+        <div class="hero__badges">
+          <div class="badge">Made by an <b>Elite</b></div>
+          <div class="badge">Sell with <b>Commerce</b></div>
+          <div class="badge">Build with <b>Blocks</b></div>
+        </div>
+
+        <div class="hero__actions">
+          <a class="btn" href="#demos" data-cursor="link">Scroll to Discover</a>
+          <a class="btn btn--ghost" href="#cta" data-cursor="link">Get Started</a>
+        </div>
+      </div>
+
+      <a class="scrollHint" href="#stats" aria-label="Scroll to discover" data-cursor="link">
+        <span class="scrollHint__line"></span>
+        <span class="scrollHint__text">Scroll To Discover</span>
+      </a>
+    </section>
+
+    <!-- Stats -->
+    <section class="section" id="stats">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2">Big numbers, bold rhythm.</h2>
+          <p class="muted">Counters animate when they enter the viewport.</p>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat__label">INNER PAGES</div>
+            <div class="stat__value" data-count data-target="170">0</div>
+            <div class="stat__plus">+</div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">PRE-BUILT WEBSITES</div>
+            <div class="stat__value" data-count data-target="30">0</div>
+            <div class="stat__plus">+</div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">TEMPLATE BLOCKS</div>
+            <div class="stat__value" data-count data-target="1000">0</div>
+            <div class="stat__plus">+</div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">CUSTOM WIDGETS</div>
+            <div class="stat__value" data-count data-target="60">0</div>
+            <div class="stat__plus">+</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section section--alt" id="features">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2">Creative features, modern experiences.</h2>
+          <p class="muted">Loader, transitions feel, cursor effect, and smooth scrolling — just like the vibe.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__icon">⇄</div>
+            <h3 class="card__title">AJAX-style Transitions</h3>
+            <p class="card__text">We simulate page-like transitions for anchor navigation with fade + blur.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon">⏳</div>
+            <h3 class="card__title">Page Loader</h3>
+            <p class="card__text">A preloader with progress and a marquee line.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon">◎</div>
+            <h3 class="card__title">Interactive Cursor</h3>
+            <p class="card__text">Desktop cursor enlarges on buttons/links (auto-disabled on touch).</p>
+          </article>
+          <article class="card">
+            <div class="card__icon">↕</div>
+            <h3 class="card__title">Smooth Scroll</h3>
+            <p class="card__text">Native smooth scrolling + optional reduced-motion support.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commerce-ish section -->
+    <section class="section" id="commerce">
+      <div class="container split">
+        <div>
+          <h2 class="h2">Extended commerce power (demo section).</h2>
+          <p class="muted">
+            This block is a placeholder to match the “sell online / store features” section style.
+          </p>
+
+          <ul class="list">
+            <li>Built-in wishlist / compare (UI mock)</li>
+            <li>Off-screen cart drawer (UI mock)</li>
+            <li>Visual layout building mindset</li>
+            <li>Responsive product cards</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel__title">Mini Cart (Mock)</div>
+          <div class="panel__row">
+            <span>Product A</span><span>$29</span>
+          </div>
+          <div class="panel__row">
+            <span>Product B</span><span>$49</span>
+          </div>
+          <div class="panel__hr"></div>
+          <div class="panel__row panel__row--strong">
+            <span>Total</span><span>$78</span>
+          </div>
+          <button class="btn btn--full" type="button" data-cursor="button">Checkout</button>
+          <div class="panel__note muted">No reload UI feel.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demos grid + filters -->
+    <section class="section section--alt" id="demos">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2">Pre-built websites (grid + filters).</h2>
+          <p class="muted">Click a category, then toggle tags to filter cards.</p>
+        </div>
+
+        <div class="filters">
+          <div class="filters__group">
+            <div class="filters__label">Categories</div>
+            <div class="chips" id="catChips"></div>
+          </div>
+
+          <div class="filters__group">
+            <div class="filters__label">Tags</div>
+            <div class="chips" id="tagChips"></div>
+          </div>
+
+          <div class="filters__group filters__group--right">
+            <button class="btn btn--ghost" id="resetFilters" type="button" data-cursor="button">Reset</button>
+          </div>
+        </div>
+
+        <div class="grid" id="demoGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" id="cta">
+      <div class="container cta">
+        <div>
+          <h2 class="h2">Begin your journey.</h2>
+          <p class="muted">
+            Want this converted into a real multi-page site (Next.js / WordPress / Elementor style)?
+            Tell me “อยากได้แบบ X” แล้วผมจัดสเกลให้ได้.
+          </p>
+        </div>
+        <div class="cta__actions">
+          <a class="btn" href="#top" data-cursor="link">Back to top</a>
+          <a class="btn btn--ghost" href="#demos" data-cursor="link">Explore demos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="muted">© <span id="year"></span> Zeyna-Inspired Static Landing</div>
+      <div class="footer__links">
+        <a href="#features" data-cursor="link">Features</a>
+        <a href="#demos" data-cursor="link">Demos</a>
+        <a href="#cta" data-cursor="link">Start</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
