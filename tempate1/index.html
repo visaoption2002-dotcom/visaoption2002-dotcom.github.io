@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>VisaPartner – กด Username & Password WAH/WHS</title>
+    <meta name="description"
+        content="VisaPartner ช่วยกด Username & Password โครงการ Work and Holiday (WAH) และ Working Holiday Scheme (WHS) ด้วยระบบอัตโนมัติ แม่นยำ โปร่งใส ตาม PDPA" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./main/styles.css" />
+</head>
+
+<body>
+    <!-- Custom cursor -->
+    <div class="cursor" aria-hidden="true"></div>
+
+    <!-- Preloader -->
+    <div class="loader" role="status" aria-live="polite" aria-label="Loading">
+        <div class="loader__inner">
+            <div class="loader__title">VISAPARTNER LOADING</div>
+            <div class="loader__meter">
+                <div class="loader__bar"></div>
+            </div>
+            <div class="loader__pct"><span id="loaderPct">0</span>%</div>
+
+            <div class="loader__marquee" aria-hidden="true">
+                <div class="marquee__track">
+                    <span>WORK AND HOLIDAY</span><span>AUSTRALIA</span><span>NEW
+                        ZEALAND</span><span>WHS</span><span>WAH</span><span>AUTOMATION SYSTEM</span><span>PROUDLY
+                        THAI</span><span>VISA PARTNER</span>
+                    <span>WORK AND HOLIDAY</span><span>AUSTRALIA</span><span>NEW
+                        ZEALAND</span><span>WHS</span><span>WAH</span><span>AUTOMATION SYSTEM</span><span>PROUDLY
+                        THAI</span><span>VISA PARTNER</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Nav -->
+    <header class="topbar" id="top">
+        <a class="brand" href="#top" data-cursor="link">
+            <span class="brand__mark">VP</span>
+            <span class="brand__text">VisaPartner</span>
+        </a>
+
+        <button class="menuBtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuOverlay"
+            data-cursor="button">
+            <span class="menuBtn__label" id="menuBtnLabel">MENU</span>
+            <span class="menuBtn__hint">☰</span>
+        </button>
+    </header>
+
+    <!-- Fullscreen Menu Overlay -->
+    <aside class="menu" id="menuOverlay" aria-hidden="true">
+        <div class="menu__panel">
+            <div class="menu__top">
+                <div class="menu__title">VISAPARTNER NAVIGATION</div>
+                <button class="menu__close" id="menuClose" type="button" data-cursor="button">CLOSE ✕</button>
+            </div>
+
+            <div class="menu__grid">
+                <a class="menu__item" href="./index.html" data-cursor="link"
+                    style="border-color: var(--brand); background: rgba(0, 242, 255, .08);">
+                    <span class="menu__item-label">01.</span> หน้าแรก ✓
+                </a>
+                <a class="menu__item" href="./about_wah.html" data-cursor="link">
+                    <span class="menu__item-label">02.</span> เกี่ยวกับ WAH
+                </a>
+                <a class="menu__item" href="./faq.html" data-cursor="link">
+                    <span class="menu__item-label">03.</span> คำถามที่พบบ่อย
+                </a>
+                <a class="menu__item" href="./resite_photo.html" data-cursor="link">
+                    <span class="menu__item-label">04.</span> ปรับขนาดภาพ
+                </a>
+                <a class="menu__item" href="#contact" data-cursor="link">
+                    <span class="menu__item-label">05.</span> ติดต่อเรา
+                </a>
+                <a class="menu__item" href="https://line.me/R/ti/p/@166epsjo" target="_blank" data-cursor="link"
+                    style="color: #06C755;">
+                    <span class="menu__item-label">06.</span> LINE Official
+                </a>
+            </div>
+
+            <div class="menu__meta">
+                <div class="pill">WAH 2026 AVAILABLE</div>
+                <div class="pill">PDPA COMPLIANT</div>
+                <div class="pill">AUTOMATION READY</div>
+            </div>
+        </div>
+        <div class="menu__backdrop" id="menuBackdrop" aria-hidden="true"></div>
+    </aside>
+
+    <main class="page">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero__bg" aria-hidden="true"></div>
+
+            <div class="container hero__content">
+                <div class="hero__kicker">Professional WAH/WHS Automation Service</div>
+                <h1 class="hero__title">
+                    เปิดประสบการณ์<br /><span style="color: var(--brand);">Working Holiday</span>
+                </h1>
+                <p class="hero__sub">
+                    อย่างมั่นใจกับ VisaPartner เพื่อนคู่ใจตลอดเส้นทางวีซ่าของคุณ เราช่วยคุณรับ Username & Password
+                    ด้วยระบบอัตโนมัติที่แม่นยำและโปร่งใส
+                </p>
+
+                <div class="hero__badges">
+                    <div class="badge">มาตรฐาน <b>PDPA</b></div>
+                    <div class="badge">ระบบ <b>Automation</b></div>
+                    <div class="badge">สิทธิ์เป็นของคุณ <b>100%</b></div>
+                </div>
+
+                <div class="hero__actions">
+                    <a class="btn" href="#about" data-cursor="link">รู้จักเรามากขึ้น</a>
+                    <a class="btn btn--ghost" href="#contact" data-cursor="link">เริ่มเลย</a>
+                </div>
+            </div>
+
+            <a class="scrollHint" href="#about" aria-label="Scroll to discover" data-cursor="link">
+                <span class="scrollHint__line"></span>
+                <span class="scrollHint__text">เลื่อนเพื่อดูข้อมูล</span>
+            </a>
+        </section>
+
+        <!-- About (Story) -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="h2">จุดเริ่มต้นของ VisaPartner.</h2>
+                    <p class="muted">เราสร้างระบบนี้ขึ้นมาจากความเข้าใจในความฝันและความกังวลของผู้สมัครทุกคน</p>
+                </div>
+
+                <div
+                    style="font-size: 1.1rem; line-height: 1.8; color: var(--muted); max-width: 800px; margin-bottom: 40px;">
+                    <p style="margin-bottom: 20px;">หลายคนมีความฝันอยากไปใช้ชีวิตต่างประเทศ
+                        เพื่อสัมผัสโลกกว้างและเก็บเกี่ยวประสบการณ์ใหม่ๆ
+                        แต่น่าเสียดายที่บางครั้งความฝันเหล่านั้นกลับต้องจบลงจากการถูกหลอกลวงหรือเอาเปรียบ</p>
+                    <p>พวกเราเข้าใจดีถึงความผิดหวังและความเจ็บปวดจากเหตุการณ์เช่นนี้ VisaPartner จึงถูกสร้างขึ้นมา
+                        เพื่อช่วยให้ทุกคนที่มีความฝันสามารถเดินทางไปถึงเป้าหมายได้อย่างมั่นใจ และสบายใจมากที่สุด</p>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat__label">ความสำเร็จ</div>
+                        <div class="stat__value" data-count data-target="100">0</div>
+                        <div class="stat__plus">%</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__label">มาตรฐาน</div>
+                        <div class="stat__value">PDPA</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="section section--alt" id="services">
+            <div class="container">
+                <div class="section__head">
+                    <h2 class="h2">บริการของเรา.</h2>
+                    <p class="muted">มุ่งเน้นความสำเร็จในขั้นตอนที่ยากที่สุดของการขอโควต้า</p>
+                </div>
+
+                <div class="cards">
+                    <article class="card">
+                        <div class="card__icon">⇄</div>
+                        <h3 class="card__title">Username & Password</h3>
+                        <p class="card__text">พัฒนาระบบอัตโนมัติประสิทธิภาพสูง
+                            เพื่อช่วยเพิ่มโอกาสในการได้รับสิทธิ์อย่างรวดเร็วและแม่นยำ</p>
+                    </article>
+                    <article class="card">
+                        <div class="card__icon">⏳</div>
+                        <h3 class="card__title">Automation System</h3>
+                        <p class="card__text">ระบบที่ผ่านการทดสอบและใช้งานจริง
+                            ได้รับการยืนยันจากผลตอบรับที่ยอดเยี่ยมจากผู้ใช้งานที่ผ่านมา</p>
+                    </article>
+                    <article class="card">
+                        <div class="card__icon">◎</div>
+                        <h3 class="card__title">Data Management</h3>
+                        <p class="card__text">ข้อมูลจะได้รับการดูแลตามมาตรฐาน PDPA ลบทิ้งทันทีหลังงานเสร็จสิ้น
+                            ไม่มีการปลอมแปลงใดๆ</p>
+                    </article>
+                    <article class="card">
+                        <div class="card__icon">↕</div>
+                        <h3 class="card__title">100% Control</h3>
+                        <p class="card__text">คุณเป็นเจ้าของสิทธิ์อย่างสมบูรณ์ เราใช้ Email ของคุณตลอดกระบวนการ
+                            คุณจึงจัดการต่อได้เอง</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us (Infographic) -->
+        <section class="section" id="why">
+            <div class="container split">
+                <div>
+                    <h2 class="h2">ทำไมต้องเลือก VisaPartner?</h2>
+                    <p class="muted">เราไม่ใช่แค่ทีมงานกดโควต้า แต่เราเป็น Partner ที่โปร่งใสและเป็นธรรมที่สุด</p>
+                    <ul class="list">
+                        <li>โปร่งใส 100% เคารพความเป็นส่วนตัว</li>
+                        <li>ราคาชัดเจน ไม่มีค่าใช้จ่ายแอบแฝง</li>
+                        <li>ระบบเสถียรและแม่นยำ พัฒนาบอทขึ้นเอง</li>
+                        <li>สิทธิ์เป็นของคุณ 100% ใช้ Email คุณเอง</li>
+                    </ul>
+                </div>
+                <div class="panel">
+                    <div class="panel__title">มาตรฐานการบริการ</div>
+                    <div class="panel__row"><span>ความโปร่งใส</span><span>100%</span></div>
+                    <div class="panel__row"><span>ความปลอดภัยข้อมูล</span><span>Highest</span></div>
+                    <div class="panel__hr"></div>
+                    <div class="panel__row panel__row--strong"><span>Customer Satisfaction</span><span>Verified</span>
+                    </div>
+                    <a href="#contact" class="btn btn--full" data-cursor="button">จองสิทธิ์ของคุณ</a>
+                    <div class="panel__note muted">เริ่มต้น Working Holiday อย่างมั่นใจ</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & CTA -->
+        <section class="section section--alt" id="contact">
+            <div class="container cta">
+                <div>
+                    <h2 class="h2">พร้อมเริ่มต้นแล้วหรือยัง?</h2>
+                    <p class="muted">หากต้องการสอบถามข้อมูลเพิ่มเติม หรือเริ่มต้นกับเรา
+                        สามารถติดต่อได้ทันทีผ่านช่องทางด้านล่างนี้</p>
+                </div>
+                <div class="cta__actions">
+                    <a class="btn" href="https://line.me/R/ti/p/@166epsjo" target="_blank" data-cursor="link">LINE
+                        Official</a>
+                    <a class="btn btn--ghost" href="https://x.com/visa_buddy" target="_blank" data-cursor="link">Twitter
+                        / X</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="muted">© <span id="year"></span> VisaPartner. All rights reserved.</div>
+            <div class="footer__links">
+                <a href="#about" data-cursor="link">เกี่ยวกับเรา</a>
+                <a href="#services" data-cursor="link">บริการ</a>
+                <a href="#contact" data-cursor="link">ติดต่อ</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./main/app.js"></script>
+</body>
+
+</html>

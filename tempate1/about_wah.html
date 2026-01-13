@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisaPartner - Work and Holiday Australia</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-paper: #FAFAF5;
+            --text-dark: #2C2C2C;
+            --primary: #1B4D3E;
+            /* Deep Green */
+            --accent: #D4A373;
+            /* Gold/Tan */
+            --light-gray: #E5E5E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-paper);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Nav */
+        nav {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--light-gray);
+            position: sticky;
+            top: 0;
+            background: var(--bg-paper);
+            z-index: 100;
+        }
+
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .cta-small {
+            border: 1px solid var(--primary);
+            padding: 10px 20px;
+            color: var(--primary);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .cta-small:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 5%;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .issue-no {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        h1 {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        h1 i {
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 500px;
+            margin-bottom: 3rem;
+            color: #555;
+            font-weight: 300;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 500px;
+            background: #ddd;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: filter 0.5s;
+        }
+
+        .hero-img:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Image Placeholder for Editorial */
+        .img-placeholder {
+            width: 100%;
+            height: 100%;
+            background: #dcdcdc url('old_vertion/assets/main/band.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-style: italic;
+        }
+
+        /* Features - Magazine Layout */
+        .features {
+            padding: 8rem 0;
+            background: #fff;
+        }
+
+        .chapter-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 5rem;
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .feature-row:nth-child(even) .feature-text {
+            order: -1;
+            text-align: right;
+        }
+
+        .feature-row:nth-child(even) .feature-content-wrapper {
+            padding-right: 4rem;
+            padding-left: 0;
+        }
+
+        .feature-img-box {
+            height: 400px;
+            background: #eee;
+            position: relative;
+        }
+
+        .feature-img-box::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--primary);
+            z-index: 0;
+        }
+
+        .feature-img {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            background: #ccc;
+            /* Using solid colors for abstract feel if image missing */
+            object-fit: cover;
+        }
+
+        .feature-content-wrapper {
+            padding-left: 4rem;
+        }
+
+        .feature-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--light-gray);
+            line-height: 1;
+            margin-bottom: -20px;
+            position: relative;
+            z-index: -1;
+        }
+
+        .feature-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .feature-text p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 400px;
+            display: inline-block;
+        }
+
+        /* Quotes */
+        .quote-section {
+            padding: 6rem 5%;
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+        }
+
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-style: italic;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            line-height: 1.4;
+        }
+
+        .author {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+
+        /* Contact/Footer */
+        .contact {
+            padding: 8rem 5%;
+            text-align: center;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn-large {
+            display: inline-block;
+            background: var(--text-dark);
+            color: #fff;
+            padding: 20px 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+        }
+
+        .btn-large:hover {
+            opacity: 0.8;
+            color: #fff;
+        }
+
+        .footer-nav {
+            margin-top: 4rem;
+            padding-top: 4rem;
+            border-top: 1px solid var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu Toggle */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 10px;
+            z-index: 200;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--bg-paper);
+            z-index: 150;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all 0.4s ease;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+        }
+
+        .mobile-menu .cta-small {
+            margin-top: 1rem;
+            padding: 15px 30px;
+            font-size: 1rem;
+        }
+
+        /* Menu Button */
+        .menuBtn {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: 1px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .menuBtn:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* Menu Overlay */
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9000;
+            display: none;
+            pointer-events: none;
+        }
+
+        .menu-overlay.is-open {
+            display: block;
+            pointer-events: auto;
+        }
+
+        .menu-overlay__backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            z-index: 9001;
+        }
+
+        .menu-overlay__panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(600px, calc(100% - 40px));
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+            border-radius: 16px;
+            background: var(--bg-paper);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, .3);
+            padding: 30px;
+            z-index: 9002;
+        }
+
+        .menu-overlay__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .menu-overlay__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .menu-overlay__close {
+            padding: 8px 15px;
+            border: 1px solid var(--light-gray);
+            background: transparent;
+            color: var(--text-dark);
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .menu-overlay__close:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .menu-overlay__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .menu-overlay__item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 15px;
+            text-decoration: none;
+            color: var(--text-dark);
+            border-radius: 10px;
+            border: 1px solid var(--light-gray);
+            background: #fff;
+            transition: all 0.3s;
+        }
+
+        .menu-overlay__item:hover {
+            border-color: var(--primary);
+            background: rgba(27, 77, 62, 0.05);
+            transform: translateX(5px);
+        }
+
+        .menu-overlay__item-num {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .menu-overlay__item-text {
+            font-family: 'Playfair Display', serif;
+        }
+
+        @media(max-width: 768px) {
+            .menu-overlay__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-overlay__panel {
+                width: calc(100% - 20px);
+                padding: 20px;
+                border-radius: 16px;
+            }
+
+            .menu-overlay__item {
+                padding: 14px 12px;
+            }
+
+            .menuBtn {
+                padding: 8px 14px;
+                font-size: 0.75rem;
+            }
+
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .brand {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Tablet and Mobile Styles */
+        @media(max-width: 1024px) {
+            h1 {
+                font-size: 4rem;
+            }
+
+            .hero-layout {
+                gap: 2rem;
+            }
+
+            .feature-text p {
+                max-width: 100%;
+            }
+
+            .quote {
+                font-size: 2rem;
+            }
+        }
+
+        @media(max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-items {
+                display: none;
+            }
+
+            .cta-small {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero {
+                padding: 3rem 5%;
+            }
+
+            .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text {
+                order: 1;
+            }
+
+            .hero-img-box {
+                order: 2;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                max-width: 100%;
+            }
+
+            .img-placeholder {
+                height: 350px !important;
+            }
+
+            .chapter-title {
+                font-size: 1.8rem;
+                margin-bottom: 3rem;
+            }
+
+            .features {
+                padding: 4rem 0;
+            }
+
+            .feature-row {
+                grid-template-columns: 1fr;
+                margin-bottom: 3rem;
+            }
+
+            .feature-row:nth-child(even) .feature-text {
+                order: 1;
+                text-align: left;
+            }
+
+            .feature-content-wrapper,
+            .feature-row:nth-child(even) .feature-content-wrapper {
+                padding: 1.5rem 0;
+            }
+
+            .feature-img-box {
+                margin-bottom: 1.5rem;
+                height: 250px;
+            }
+
+            .feature-img-box::after {
+                top: 10px;
+                left: 10px;
+            }
+
+            .feature-num {
+                font-size: 3rem;
+            }
+
+            .feature-text h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .feature-text p {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+
+            .quote-section {
+                padding: 4rem 5%;
+            }
+
+            .quote {
+                font-size: 1.5rem;
+                line-height: 1.5;
+            }
+
+            .contact {
+                padding: 4rem 5%;
+            }
+
+            .contact p {
+                font-size: 1rem;
+            }
+
+            .btn-large {
+                padding: 15px 30px;
+                font-size: 0.9rem;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media(max-width: 480px) {
+            .brand {
+                font-size: 1.4rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .issue-no {
+                font-size: 0.75rem;
+                letter-spacing: 2px;
+            }
+
+            .hero {
+                padding: 2rem 5%;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .img-placeholder {
+                height: 280px !important;
+            }
+
+            .chapter-title {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .features {
+                padding: 3rem 0;
+            }
+
+            .feature-img-box {
+                height: 200px;
+            }
+
+            .feature-num {
+                font-size: 2.5rem;
+                margin-bottom: -15px;
+            }
+
+            .feature-text h3 {
+                font-size: 1.3rem;
+            }
+
+            .feature-text p {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+
+            .quote {
+                font-size: 1.25rem;
+            }
+
+            .author {
+                font-size: 0.8rem;
+            }
+
+            .contact>div {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn-large {
+                width: 100%;
+                text-align: center;
+                padding: 18px 30px;
+            }
+
+            .footer-nav {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="./index.html" class="brand" style="text-decoration: none;">VisaPartner.</a>
+        <button class="menuBtn" id="menuBtn" type="button">MENU ☰</button>
+    </nav>
+
+    <!-- Menu Overlay -->
+    <aside class="menu-overlay" id="menuOverlay" aria-hidden="true">
+        <div class="menu-overlay__panel">
+            <div class="menu-overlay__top">
+                <div class="menu-overlay__title">VisaPartner Navigation</div>
+                <button class="menu-overlay__close" id="menuClose" type="button">CLOSE ✕</button>
+            </div>
+
+            <div class="menu-overlay__grid">
+                <a class="menu-overlay__item" href="./index.html">
+                    <span class="menu-overlay__item-num">01.</span>
+                    <span class="menu-overlay__item-text">หน้าแรก</span>
+                </a>
+                <a class="menu-overlay__item" href="./about_wah.html"
+                    style="border-color: var(--primary); background: rgba(27, 77, 62, 0.08);">
+                    <span class="menu-overlay__item-num">02.</span>
+                    <span class="menu-overlay__item-text">เกี่ยวกับ WAH ✓</span>
+                </a>
+                <a class="menu-overlay__item" href="./faq.html">
+                    <span class="menu-overlay__item-num">03.</span>
+                    <span class="menu-overlay__item-text">คำถามที่พบบ่อย</span>
+                </a>
+                <a class="menu-overlay__item" href="./resite_photo.html">
+                    <span class="menu-overlay__item-num">04.</span>
+                    <span class="menu-overlay__item-text">ปรับขนาดภาพ</span>
+                </a>
+                <a class="menu-overlay__item" href="./index.html#contact">
+                    <span class="menu-overlay__item-num">05.</span>
+                    <span class="menu-overlay__item-text">ติดต่อเรา</span>
+                </a>
+                <a class="menu-overlay__item" href="https://line.me/R/ti/p/@166epsjo" target="_blank"
+                    style="color: #06C755;">
+                    <span class="menu-overlay__item-num">06.</span>
+                    <span class="menu-overlay__item-text">LINE Official</span>
+                </a>
+            </div>
+        </div>
+        <div class="menu-overlay__backdrop" id="menuBackdrop" aria-hidden="true"></div>
+    </aside>
+
+
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-layout">
+                <div class="hero-text">
+                    <span class="issue-no">Work and Holiday Visa 2025</span>
+                    <h1>Go Australia <br><i>เริ่มต้นที่นี่</i></h1>
+                    <p>โครงการ Work and Holiday ไทย–ออสเตรเลีย เปิดโอกาสให้เยาวชนไทยอายุ 18-30 ปี
+                        ได้ท่องเที่ยวและทำงานในออสเตรเลียได้นานถึง 12 เดือน พร้อมโอกาสต่อวีซ่าได้ถึง 3 ปี!</p>
+                    <a href="#contact" class="cta-small"
+                        style="background:var(--primary); color:#fff; padding: 15px 30px;">เริ่มต้นเลย</a>
+                </div>
+                <div class="hero-img-box">
+                    <!-- Placeholder that looks like a high-end photo -->
+                    <div class="img-placeholder" style="height: 600px; background-color: #d8d8d8;">
+                        <img src="old_vertion/assets/main/band.jpg" alt="Travel"
+                            style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="features" id="story">
+        <h2 class="chapter-title">รู้จักโครงการ Work and Holiday</h2>
+
+        <div class="container">
+            <!-- Feature 1: คุณสมบัติผู้สมัคร -->
+            <div class="feature-row">
+                <div class="feature-img-box">
+                    <div class="feature-img" style="background: linear-gradient(135deg, #1B4D3E 0%, #2E7D5A 100%);">
+                    </div>
+                </div>
+                <div class="feature-content-wrapper feature-text">
+                    <div class="feature-num">01</div>
+                    <h3>คุณสมบัติผู้สมัคร</h3>
+                    <p>• สัญชาติไทย อายุ 18–30 ปี (ไม่เกิน 31 ปี ณ วันยื่นขอวีซ่า)<br>
+                        • จบปริญญาตรีขึ้นไป<br>
+                        • มีทักษะภาษาอังกฤษ IELTS ≥ 4.5 หรือเทียบเท่า<br>
+                        • มีเงินทุนไม่น้อยกว่า 5,000 AUD (~120,000 บาท)<br>
+                        • เดินทางคนเดียว ไม่มีผู้ติดตาม<br>
+                        • สุขภาพแข็งแรง ไม่มีประวัติอาชญากรรม</p>
+                </div>
+            </div>
+
+            <!-- Feature 2: ขั้นตอนการสมัคร -->
+            <div class="feature-row">
+                <div class="feature-img-box">
+                    <div class="feature-img" style="background: linear-gradient(135deg, #778DA9 0%, #415A77 100%);">
+                    </div>
+                </div>
+                <div class="feature-content-wrapper feature-text">
+                    <div class="feature-num">02</div>
+                    <h3>ขั้นตอนการสมัคร</h3>
+                    <p>1. สมัครกับกรมกิจการเด็กและเยาวชน (ดย.) กดรับโควตา<br>
+                        2. ยื่นเอกสารขอหนังสือรับรองคุณสมบัติ<br>
+                        3. ยื่นขอวีซ่าผ่าน ImmiAccount ชำระค่าธรรมเนียม ~635 AUD<br>
+                        4. เก็บข้อมูล Biometrics และตรวจสุขภาพ<br>
+                        5. รอผลอนุมัติและเดินทางไปออสเตรเลีย</p>
+                </div>
+            </div>
+
+            <!-- Feature 3: เอกสารที่ต้องใช้ -->
+            <div class="feature-row">
+                <div class="feature-img-box">
+                    <div class="feature-img" style="background: linear-gradient(135deg, #D4A373 0%, #B8956F 100%);">
+                    </div>
+                </div>
+                <div class="feature-content-wrapper feature-text">
+                    <div class="feature-num">03</div>
+                    <h3>เอกสารสำคัญ</h3>
+                    <p>• ใบสมัครเข้าร่วมโครงการฯ พร้อมลงลายมือชื่อ<br>
+                        • บัตรประชาชน ทะเบียนบ้าน และ Passport<br>
+                        • หนังสือรับรองฐานะการเงินจากธนาคาร (≥120,000 บาท)<br>
+                        • ผลสอบภาษาอังกฤษ (อายุ < 1 ปี)<br>
+                            • สำเนาปริญญาบัตร/หนังสือรับรองจบการศึกษา<br>
+                            • แผนการเดินทางและประเภทงานที่สนใจ</p>
+                </div>
+            </div>
+
+            <!-- Feature 4: โควต้าประจำปี -->
+            <div class="feature-row">
+                <div class="feature-img-box">
+                    <div class="feature-img" style="background: linear-gradient(135deg, #2C5F2D 0%, #4A8C4B 100%);">
+                    </div>
+                </div>
+                <div class="feature-content-wrapper feature-text">
+                    <div class="feature-num">04</div>
+                    <h3>โควต้า 2,000 คน/ปี</h3>
+                    <p>โครงการเริ่มตั้งแต่ปี 2548 โดยกำหนดโควตาจำนวน 2,000 คนต่อปี (เพิ่มจากเดิม 500 คน)
+                        เป็นความร่วมมือแบบต่างตอบแทนระหว่างไทย-ออสเตรเลีย การจัดสรรเป็นระบบมาก่อนได้ก่อน
+                        ควรติดตามประกาศจากกรม ดย. อย่างใกล้ชิด</p>
+                </div>
+            </div>
+
+            <!-- Feature 5: ระยะเวลาวีซ่า -->
+            <div class="feature-row">
+                <div class="feature-img-box">
+                    <div class="feature-img" style="background: linear-gradient(135deg, #5B7C99 0%, #3D5A73 100%);">
+                    </div>
+                </div>
+                <div class="feature-content-wrapper feature-text">
+                    <div class="feature-num">05</div>
+                    <h3>อยู่ได้นาน 1-3 ปี</h3>
+                    <p>• วีซ่าปีแรก: 12 เดือน Multiple Entry<br>
+                        • วีซ่าปีที่ 2: ทำงาน Specified Work 88 วัน ในพื้นที่ชนบท<br>
+                        • วีซ่าปีที่ 3: ทำงานเพิ่มอีก 6 เดือนในปีที่สอง<br>
+                        รวมสูงสุด 36 เดือนในออสเตรเลีย!</p>
+                </div>
+            </div>
+
+            <!-- Feature 6: สิทธิประโยชน์ -->
+            <div class="feature-row">
+                <div class="feature-img-box">
+                    <div class="feature-img" style="background: linear-gradient(135deg, #8B4513 0%, #CD853F 100%);">
+                    </div>
+                </div>
+                <div class="feature-content-wrapper feature-text">
+                    <div class="feature-num">06</div>
+                    <h3>สิทธิและข้อจำกัด</h3>
+                    <p>✓ ทำงานชั่วคราวได้อย่างถูกกฎหมาย ไม่ต้องมีสปอนเซอร์<br>
+                        ✓ เรียนหลักสูตรระยะสั้นได้สูงสุด 4 เดือน<br>
+                        ✓ แลกเปลี่ยนวัฒนธรรมและฝึกภาษา<br>
+                        ⚠ ห้ามทำงานกับนายจ้างเดียวกันเกิน 6 เดือน<br>
+                        ⚠ ไม่สามารถนำผู้ติดตาม (คู่สมรส/บุตร) ไปด้วย</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <div class="container">
+            <p class="quote">"โอกาสใช้ชีวิตและทำงานในออสเตรเลีย คุณพร้อมหรือยัง?"</p>
+            <span class="author">— Work and Holiday Program</span>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="chapter-title" style="margin-bottom: 2rem;">พร้อมเริ่มต้นแล้วหรือยัง?</h2>
+        <p>ทีมงาน VisaPartner พร้อมช่วยเหลือคุณในเรื่องการสมัครวีซ่า Work and Holiday</p>
+        <div style="display: flex; justify-content: center; gap: 20px;">
+            <a href="https://line.me/R/ti/p/@166epsjo" class="btn-large">Message via LINE</a>
+            <a href="https://x.com/visa_buddy" class="btn-large"
+                style="background: white; color: var(--text-dark); border: 1px solid var(--text-dark)">Twitter / X</a>
+        </div>
+
+        <div class="footer-nav">
+            <div>© 2025 VisaPartner</div>
+            <div>Designed for Dreamers</div>
+            <div>Bangkok, Thailand</div>
+        </div>
+    </section>
+
+    <script>
+
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Menu Overlay Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const menuClose = document.getElementById('menuClose');
+        const menuBackdrop = document.getElementById('menuBackdrop');
+
+        function openMenuOverlay() {
+            menuOverlay.classList.add('is-open');
+            menuOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenuOverlay() {
+            menuOverlay.classList.remove('is-open');
+            menuOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = 'auto';
+        }
+
+        if (menuBtn) {
+            menuBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (menuOverlay.classList.contains('is-open')) closeMenuOverlay();
+                else openMenuOverlay();
+            });
+        }
+
+        if (menuClose) menuClose.addEventListener('click', closeMenuOverlay);
+        if (menuBackdrop) menuBackdrop.addEventListener('click', closeMenuOverlay);
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuOverlay.classList.contains('is-open')) closeMenuOverlay();
+        });
+
+        document.querySelectorAll('.menu-overlay__item').forEach((a) => {
+            a.addEventListener('click', closeMenuOverlay);
+        });
+    </script>
+</body>
+
+</html>

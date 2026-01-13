@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <title>VisaPartner | คำถามที่พบบ่อย (FAQ) - ข้อมูลวีซ่า WAH/WHS</title>
+    <meta name="description"
+        content="รวมคำถามที่พบบ่อยเกี่ยวกับโครงการ Work and Holiday (WAH) และ Working Holiday Scheme (WHS) จาก VisaPartner เพื่อนคู่ใจวีซ่าของคุณ" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #05070f;
+            --bg2: #0a0d1a;
+            --card: rgba(255, 255, 255, .04);
+            --card2: rgba(255, 255, 255, .07);
+            --stroke: rgba(255, 255, 255, .12);
+            --text: #ffffff;
+            --muted: rgba(200, 220, 255, .8);
+            --brand: #00f2ff;
+            --brand2: #00ff9d;
+            --radius: 22px;
+            --font: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            --display: "Space Grotesk", Inter, system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            color: var(--text);
+            background: radial-gradient(1200px 700px at 18% 18%, rgba(0, 242, 255, .15), transparent 50%),
+                radial-gradient(980px 620px at 82% 12%, rgba(0, 255, 157, .12), transparent 50%),
+                linear-gradient(180deg, var(--bg), var(--bg2));
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            backdrop-filter: blur(12px);
+            background: rgba(12, 20, 38, .55);
+            border-bottom: 1px solid rgba(205, 220, 240, .16);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand__mark {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(0, 242, 255, .35), rgba(0, 255, 157, .30));
+            border: 1px solid rgba(255, 255, 255, .2);
+            font-family: var(--display);
+            font-weight: 600;
+        }
+
+        .brand__text {
+            font-family: var(--display);
+            font-weight: 600;
+        }
+
+        .menuBtn {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding: 10px 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            background: var(--card2);
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .menuBtn:hover {
+            border-color: var(--brand);
+            transform: translateY(-1px);
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 100px 0 60px;
+        }
+
+        .page-title {
+            font-family: var(--display);
+            font-size: clamp(32px, 6vw, 56px);
+            margin-bottom: 10px;
+        }
+
+        .page-title span {
+            color: var(--brand);
+        }
+
+        .page-subtitle {
+            color: var(--muted);
+            margin-bottom: 40px;
+        }
+
+        /* FAQ Search */
+        .search-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 18px 24px 18px 54px;
+            border-radius: 18px;
+            background: var(--card);
+            border: 1px solid var(--stroke);
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: var(--brand);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        /* FAQ Tabs */
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .category-tab {
+            padding: 10px 20px;
+            border-radius: 99px;
+            background: var(--card);
+            border: 1px solid var(--stroke);
+            color: var(--muted);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .category-tab.active {
+            background: var(--brand);
+            color: #000;
+            border-color: var(--brand);
+        }
+
+        /* FAQ Items */
+        .faq-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--card);
+            border: 1px solid var(--stroke);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 22px 28px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-question h3 {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .faq-toggle {
+            font-size: 20px;
+            color: var(--brand);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 28px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+            color: var(--muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 28px 28px;
+            max-height: 800px;
+        }
+
+        .faq-answer p {
+            margin-bottom: 12px;
+        }
+
+        .faq-answer ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .faq-answer li {
+            margin-bottom: 6px;
+        }
+
+        .faq-answer a {
+            color: var(--brand);
+            text-decoration: none;
+        }
+
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Menu Overlay (Same as other pages) */
+        .menu {
+            position: fixed;
+            inset: 0;
+            z-index: 9000;
+            display: none;
+            pointer-events: none;
+        }
+
+        .menu.is-open {
+            display: block;
+            pointer-events: auto;
+        }
+
+        .menu__backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 7, 15, .85);
+            backdrop-filter: blur(12px);
+            z-index: 9001;
+        }
+
+        .menu__panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(920px, calc(100% - 40px));
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            background: rgba(10, 15, 30, .98);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, .8);
+            padding: 24px;
+            z-index: 9002;
+        }
+
+        .menu__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+
+        .menu__title {
+            font-family: var(--display);
+            font-size: 12px;
+            color: var(--muted);
+            letter-spacing: .2em;
+        }
+
+        .menu__close {
+            padding: 10px 15px;
+            border-radius: 12px;
+            border: 1px solid var(--stroke);
+            background: var(--card2);
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .menu__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .menu__item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 18px;
+            border: 1px solid var(--stroke);
+            background: var(--card);
+            transition: all 0.3s;
+        }
+
+        .menu__item:hover {
+            transform: translateX(10px);
+            border-color: var(--brand);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .menu__item-label {
+            color: var(--brand);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .menu__meta {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pill {
+            padding: 8px 15px;
+            border-radius: 99px;
+            background: var(--card2);
+            border: 1px solid var(--stroke);
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        @media (max-width: 768px) {
+            .menu__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-question h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <span class="brand__mark">VP</span>
+            <span class="brand__text">VisaPartner</span>
+        </a>
+        <button class="menuBtn" id="menuBtn">
+            <span>MENU</span><span>☰</span>
+        </button>
+    </header>
+
+    <aside class="menu" id="menuOverlay" aria-hidden="true">
+        <div class="menu__panel">
+            <div class="menu__top">
+                <div class="menu__title">VISAPARTNER NAVIGATION</div>
+                <button class="menu__close" id="menuClose">CLOSE ✕</button>
+            </div>
+            <div class="menu__grid">
+                <a class="menu__item" href="./index.html">
+                    <span class="menu__item-label">01.</span> หน้าแรก
+                </a>
+                <a class="menu__item" href="./about_wah.html">
+                    <span class="menu__item-label">02.</span> เกี่ยวกับ WAH
+                </a>
+                <a class="menu__item" href="./faq.html"
+                    style="border-color: var(--brand); background: rgba(0, 242, 255, .08);">
+                    <span class="menu__item-label">03.</span> คำถามที่พบบ่อย ✓
+                </a>
+                <a class="menu__item" href="./resite_photo.html">
+                    <span class="menu__item-label">04.</span> ปรับขนาดภาพ
+                </a>
+                <a class="menu__item" href="./index.html#contact">
+                    <span class="menu__item-label">05.</span> ติดต่อเรา
+                </a>
+                <a class="menu__item" href="https://line.me/R/ti/p/@166epsjo" target="_blank" style="color: #06C755;">
+                    <span class="menu__item-label">06.</span> LINE Official
+                </a>
+            </div>
+            <div class="menu__meta">
+                <div class="pill">WAH 2024 AVAILABLE</div>
+                <div class="pill">PDPA COMPLIANT</div>
+            </div>
+        </div>
+        <div class="menu__backdrop" id="menuBackdrop"></div>
+    </aside>
+
+    <main class="container">
+        <h1 class="page-title">คำถามที่<span>พบบ่อย</span></h1>
+        <p class="page-subtitle">รวบรวมข้อมูลทุกอย่างที่คุณอยากรู้เกี่ยวกับ WAH, WHS และบริการของเรา</p>
+
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-box" id="faqSearch" placeholder="ค้นหาคำถามที่ต้องการ..." />
+        </div>
+
+        <div class="category-tabs">
+            <div class="category-tab active" data-category="all">ทั้งหมด</div>
+            <div class="category-tab" data-category="username">การขอ Username</div>
+            <div class="category-tab" data-category="quota">การกดโควต้า</div>
+            <div class="category-tab" data-category="document">การยื่นเอกสาร</div>
+            <div class="category-tab" data-category="finance">การเงิน</div>
+            <div class="category-tab" data-category="health">สุขภาพ</div>
+            <div class="category-tab" data-category="others">อื่นๆ</div>
+        </div>
+
+        <div class="faq-list" id="faqList">
+            <!-- ───── การขอ Username ───── -->
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>ลิงก์ขอ Username คืออะไร?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ใช้ลิงก์นี้เลย: <a href="http://dcywah.dcy.go.th/opp/app/register.php"
+                            target="_blank">http://dcywah.dcy.go.th/opp/app/register.php</a></p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>ต้องเข้าไปขอที่หน้าแรกก่อนหรือเข้าไปที่ลิงก์ขอ Username โดยตรง?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>เข้าไปที่ลิงก์ขอ Username โดยตรง เว็ปจะเปลี่ยนเป็นระบบขอ Username ให้เวลา 09:00 น.</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>เปิดให้กดขอ Username เวลาไหน?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ทุกวันเวลา 09:00 น. ตามเวลาไทย ในช่วงวันที่กำหนดเท่านั้น</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>กดขอ Username ควรกดจากคอมฯ หรือมือถือ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>กดได้ทั้งสองแบบ สำเร็จได้จากคอมฯ ต่อ LAN และจากมือถือผ่านเน็ตมือถือเหมือนกัน</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>ควรใช้เบราว์เซอร์อะไรในการกด?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Chrome, Firefox หรือ Edge ก็ได้ แต่ Chrome นิยมสุดเพราะหลายคนแชร์ทริคกันมากที่สุด</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>ชื่อต้องกรอกอย่างไรในฟอร์มภาษาอังกฤษ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>กรอกชื่อ–นามสกุลตาม Passport ได้เลย ระบบจะปรับเป็นตัวพิมพ์ใหญ่ให้เองในขั้นตอนถัดไป</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>ต้องพิมพ์ชื่อ–นามสกุลเป็นตัวพิมพ์ใหญ่ทั้งหมดหรือไม่?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ไม่ต้องครับ พิมพ์เล็ก–ใหญ่ก็ได้ ระบบจะเปลี่ยนเป็นตัวพิมพ์ใหญ่ให้อัตโนมัติ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>อีเมลต้องกรอกตัวพิมพ์เล็ก–ใหญ่ให้ตรงเป๊ะไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>อีเมลไม่แยก case-sensitive แต่ต้องสะกดให้ถูกต้อง ถ้าสะกดผิด ระบบจะไม่ส่งเมลยืนยันให้</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>ช่องกรอกที่อยู่ ต้องกรอกเป็นภาษาอะไร และใช้ที่อยู่ไหน?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>กรอกตามทะเบียนบ้าน (ภาษาไทย)</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>ต้องเลือกคำนำหน้าหรือไม่?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>เป็นฟิลด์บังคับ ถ้าไม่เลือก ระบบจะไม่บันทึกข้อมูล</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>เปิดหลายแท็บช่วยให้กดติดง่ายขึ้นไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ก่อนล็อกอินเปิดกี่แท็บก็ได้ แต่หลังล็อกอินแล้วให้ใช้แท็บเดียว เพื่อหลีกเลี่ยงข้อผิดพลาด</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>ต้องรีเฟรชหน้าเว็บจนกว่าจะขึ้นฟอร์มกรอกไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ใช่ กด F5/Refresh แล้ว Submit ซ้ำไปเรื่อยๆ จนกว่าจะขึ้นข้อความ “บันทึกสำเร็จ”</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>ใช้ Chrome Autofill หรือสคริปต์ช่วยกรอกอัตโนมัติได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ใช้ได้ แต่บางครั้งปุ่ม Import/Export อาจหาย ให้ตรวจสอบว่าติดตั้ง Extension ถูกต้องก่อน</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>ต้องเตรียมเอกสารอะไรบ้างในรอบขอ Username?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>รอบนี้ไม่ต้องแนบเอกสารใด ๆ แต่ควรเตรียมให้พร้อมก่อนวันคัดตัวจริง เช่น รูปถ่าย, บัตรประชาชน,
+                        Passport, Bank Certificate, Email</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>รูปถ่ายต้องขนาดเท่าไร พื้นหลังเป็นแบบไหน?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>รูปหน้าตรง ขนาด 200 × 265 px พื้นหลังสีขาวหรือฟ้า ห้ามสวมหมวก/แว่นตาดำ และถ่ายไม่เกิน 3 เดือน</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="username">
+                <div class="faq-question">
+                    <h3>ถ้าพิมพ์อีเมลผิด ต้องทำอย่างไร?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ถ้าสะกดไม่ตรงกับอีเมลจริง ระบบจะไม่เจอชื่อ ให้สมัครใหม่ด้วยอีเมลที่ถูกต้องเท่านั้น</p>
+                </div>
+            </article>
+
+            <!-- ───── การกดโควต้า ───── -->
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>ลิงก์กดโควต้าต้องเหมือนกับหน้ากด Username ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ไม่ใช่ครับ โควต้าจะกดผ่าน URL ที่ลงท้ายด้วย <code>/opp/app/sch_yproject_project_member.php</code>
+                        ไม่ใช่ลิงก์เดียวกับหน้ากด Username</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>ตอนกดโควต้าต้องอัปโหลดเอกสารหรือเปล่า?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ไม่ต้องครับ กดให้สำเร็จก่อน เอกสารจริงจะอัปโหลดในช่วงยื่นเอกสารหลังจากนั้น</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>ถ้ายังไม่มีพาสปอร์ต สามารถกดโควต้าก่อนได้ไหม แล้วค่อยไปทำพาสปอร์ตทีหลัง?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ไม่ได้ครับ พาสปอร์ตต้องออกให้เรียบร้อยก่อนวันยื่นเอกสารกับทาง ด.ย.</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>ถ้าคำนำหน้าในบัตรประชาชนกับพาสปอร์ตไม่ตรงกัน ควรใส่อย่างไร?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ให้ใส่ตามที่ระบุในพาสปอร์ตครับ (ในรอบโควต้าจะมีให้เลือกแค่ “นาย”, “นาง”, “นางสาว”)</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>Bank Certificate ต้องออกก่อนวันกดโควต้ากี่วัน?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ออกก่อน 1 วันก็ใช้ได้ เช่น ออกวันที่ 26 มี.ค. เพื่อใช้กดวันที่ 27 มี.ค.</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>จะขอ Bank Certificate จากบัญชีคนอื่น (เช่น ของน้องสาว) ได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>แนะนำให้ใช้บัญชีของตัวเองครับ ไม่ควรใช้บัญชีผู้อื่น แม้จะนามสกุลเดียวกัน</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>ถ้าติดอันดับ 1–500 ถึงจะได้สิทธิ์ใช่ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ถูกต้องครับ ระบบจะให้ผู้กด 500 คนแรกยื่นเอกสารได้เลย (มีสำรองอีก 800 คน เรียงตามลำดับหลังจากนั้น)
+                    </p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>ช่วยกันล็อกอินแล้วกดพร้อมกันได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ไม่ได้ครับ ระบบล็อกอินได้ครั้งละเครื่อง และไม่อนุญาตให้กดแทนหรือช่วยกันกด</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>ถ้า IELTS/PTE ยังไม่ออกผล สามารถสอบซ้ำให้ผลออกก่อน 27 มี.ค. แล้วกดโควต้าได้หรือไม่?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ได้ครับ แต่ผลสอบใหม่ต้องออกก่อนวันที่ 27 มีนาคม</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>กดวันที่ 27 แล้วจะรู้ผลเลยไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>รู้ผลทันทีบนหน้าเว็บ ถ้าขึ้นสถานะ “ยืนยันสำเร็จ” ก็สามารถพิมพ์เอกสารออกมาได้เลย</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>ถ้าไม่ติดใน 2,000 คนแรก จะมีสำรองไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>มีครับ สำรองอีก 800 คน หากผู้หลักไม่ใช้สิทธิ์ จะเรียงจากสำรองขึ้นมาตามลำดับ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>รอบโควต้าปีนี้กดยากกว่าเดิมไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ยากขึ้นเล็กน้อยเพราะการแข่งขันสูงและเซิร์ฟเวอร์บางหน้าอาจล่ม แต่ถ้าเตรียมตัวดี ก็มีโอกาสสำเร็จ
+                    </p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>ควรเตรียมอะไรบ้างก่อนวันจริง?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>เตรียมเอกสารสำคัญให้พร้อม (พาสปอร์ต, ผลสอบภาษา, Bank Certificate) ก่อน 27 มี.ค.</li>
+                        <li>อ่านประกาศและสรุปวิธีในกลุ่มให้เข้าใจ</li>
+                        <li>หาอินเทอร์เน็ตความเร็วสูง / ตั้งสติกดในวันจริง</li>
+                        <li>เตรียมใจรับ mental stress เพราะโอกาสมีครั้งเดียว สู้ ๆ!</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- ───── การยื่นเอกสาร ───── -->
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>Transcripts ขอหลังวันที่กดโควต้า ใช้ได้ไหมคะ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>เอกสารรอบ ด.ย. ต้องออกก่อนวันที่กดโควต้า ส่วนรอบวีซ่า (Subsequent Visa) ถึงจะยื่นได้จริงคือ 1
+                        ก.ค. เท่านั้น</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>ถ้าว่างงาน ต้องเขียนอาชีพอะไรดีคะ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>กรอก “ว่างงาน” หรือเครื่องหมาย “–” ก็ได้ ไม่มีผลต่อการพิจารณา</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>ถ้าคำนำหน้าชื่อในใบสมัครผิด ด.ย. จะปัดตกไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ส่งเอกสารไปก่อนได้ ไม่เป็นประเด็นสำคัญ ทางกรรมการจะพิจารณาเบื้องต้นเอง</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>ควรถ่ายเอกสารสีหรือขาว-ดำดีคะ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ใช้ได้ทั้งสองแบบ ถ่ายสีจะสวยกว่า แต่ขาว-ดำก็ยอมรับได้</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>เซ็นสำเนาแล้วลงวันที่ก่อนวันส่งได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>เซ็นได้ตั้งแต่วันที่กำหนด (10–22 เม.ย.) จะลงก่อนหรือวันเดียวกับวันส่งก็ได้</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>ตั้งชื่อไฟล์ยังไงดี?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ตั้งเป็น “ลำดับที่ + ชื่อ นามสกุล” (เช่น 0345 นายวีซ่า บัดดี้) แนะนำใส่ 0 นำหน้าให้ครบ 4 หลัก</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>ลำดับในใบสมัครกับประกาศไม่ตรงกัน ต้องแก้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ปริ้นออกมาอย่างเดิมได้เลย ไม่ต้องแก้ตามประกาศ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>ปรับหน้าเอกสารยังไงให้เรียบร้อย กรณีฟอนต์ใหญ่เกิน?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>เปลี่ยนฟ้อนต์เป็น TH Sarabun, ปรับ scale ของ PDF ประมาณ 80–90% (เลื่อนดูให้พอดี)</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>ได้รับใบปริญญาแล้วแต่หาไม่เจอ ใช้ใบรับรองคุณวุฒิแทนได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ใช้ใบรับรองคุณวุฒิแทนได้ เพราะรับรองว่าจบจริง แต่ถ้าต้องการใบปริญญาบัตรชุดใหม่ก็ขอได้ตามปกติ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>ลายเซ็นเป็นภาษาอังกฤษได้ไหม ถ้าไม่มีลายเซ็นต้องเขียนชื่อปกติ?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>เซ็นได้ทุกรูปแบบตามลายเซ็นที่มี หรือเขียนชื่อปกติก็ได้ ไม่บังคับ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>ตรงรายละเอียดผู้เข้าร่วมฯ เขียนเองได้ไหม? พยานให้เพื่อนเซ็นได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ผู้เข้าร่วมโครงการเขียนเองได้, พยานให้ใครเซ็นก็ได้</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>สแกนพาสปอร์ตแค่หน้ารูป+ข้อมูลพอไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>สแกนแค่หน้าที่มีรูป+ข้อมูลก็พอ ไม่ต้องสแกนหน้าปกด้วย</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>bank certificates มีตราประทับสาขาแต่ไม่มีลายเซ็น จะได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ใช้ใบนั้นได้เลย (อัพเดทจากปี ค.ศ. 2025)</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>คุณแม่เสียชีวิตแล้ว ใส่ข้อมูลในช่องพ่อ-แม่ยังไง? / ชื่อพ่อในทะเบียนบ้านไม่ตรง ใส่ยังไง?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>กรอกชื่อ-สกุล ระบุ “เสียชีวิต” ในช่องอาชีพ ช่องอื่นใช้ “–” ได้
+                        กรณีชื่อไม่ตรงให้แนบใบเปลี่ยนชื่อหรือทะเบียนบ้านที่แก้ไขแล้วเป็นหลักฐาน</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>ส่งเอกสารวันแรก จะพิจารณา 500 คนแรกก่อนไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ไม่กำหนดตามวันส่ง เรียงตามลำดับในประกาศล่าสุดเท่านั้น ส่งวันไหนก็ได้ในช่วงที่กำหนด</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>ผลสอบ IELTS ที่ปริ้นจากเว็บได้หรือขอ hard copy?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ปริ้นจากเว็บมาเซ็นสำเนาได้เลย ไม่จำเป็นต้อง hard copy</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>เอกสารแปลจำเป็นต้องรับรอง NAATI ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ไม่จำเป็น ทั้งรอบ ด.ย. และตอนยื่นวีซ่า</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>เอกสารแปลอายุเกิน 30 วันยังใช้ได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ใช้ได้ถ้าข้อมูลในเอกสารยังไม่เปลี่ยน “30 วัน” เป็นเพียงแนวปฏิบัติ ไม่ใช่กฎตายตัว</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>หนังสือรับรองการทำงานต้องออกไม่เกินกี่วันก่อนกด Apply?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>แนะนำออกก่อนวันกดโควต้า/ยื่นวีซ่าไม่เกิน 30 วัน</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="document">
+                <div class="faq-question">
+                    <h3>ถ้าไม่มี payslip จะใช้อะไรแทนพิสูจน์รายได้?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ใช้ Certificate of Employment หรือหนังสือรับรองเงินเดือน; ฟรีแลนซ์ใช้ invoice, receipt หรือ ภงด.
+                        90 แทนได้</p>
+                </div>
+            </article>
+
+            <!-- ───── การเงิน ───── -->
+            <article class="faq-item" data-category="finance">
+                <div class="faq-question">
+                    <h3>หลังออก Bank Certificate แล้ว ถอนหรือฝากเงินได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ได้ค่ะ แต่ควรรักษายอดคงเหลือ ≥ 5,000 AUD (~118 k THB)
+                        และแนบหลักฐาน/คำอธิบายทุกครั้งที่มียอดเงินก้อนใหญ่เข้าออก</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="finance">
+                <div class="faq-question">
+                    <h3>ยื่น Bank Certificate อย่างเดียว (ไม่แนบ Statement) ได้หรือไม่?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ได้สำหรับ WH New Zealand; หาก Immi ต้องการ Statement จะรีเควสต์เพิ่มเติมภายหลัง</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="finance">
+                <div class="faq-question">
+                    <h3>ใช้บัญชีพ่อแม่หรือสปอนเซอร์แทนได้ไหม ต้องทำ family-tree ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ได้ ต้องแนบ Bank Cert + Statement ของสปอนเซอร์ จดหมายรับรองการสนับสนุนการเงิน และแผนผัง
+                        family-tree เพื่อยืนยันความสัมพันธ์</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="finance">
+                <div class="faq-question">
+                    <h3>Bank Certificate ลายเซ็นดิจิทัลใช้ได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ใช้ได้ (ส่วนใหญ่ยอมรับ) แต่บางธนาคารไทยยังต้องขอฉบับเซ็นสดที่สาขา</p>
+                </div>
+            </article>
+
+            <!-- ───── สุขภาพ ───── -->
+            <article class="faq-item" data-category="health">
+                <div class="faq-question">
+                    <h3>ตรวจสุขภาพที่ IOM ราคาเท่าไร ใช้เวลานานไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>กรุงเทพ ≈ 4-5 พันบาท ใช้เวลาหน้างานราว 2 ชม.; เชียงใหม่ ≈ 3.5 พันบาท Walk-in ก่อนเที่ยงได้
+                        ผลอัปโหลดตรงถึง Immi ไม่ต้องรอรับเอง</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="health">
+                <div class="faq-question">
+                    <h3>ประกันสุขภาพต้องซื้อเมื่อไร และแบรนด์ไหนฮิตที่สุด?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>วีซ่าไม่บังคับแนบตอนยื่น แต่แนะนำซื้อ OSHC/Travel ก่อนบิน บริษัทที่นิยมคือ Bupa</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="health">
+                <div class="faq-question">
+                    <h3>จองตรวจสุขภาพต้องรอ HAP ID / อีเมลยืนยันก่อนหรือเปล่า?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ต้องรอค่ะ HAP ID จะมากับอีเมล “Health Examination” หลัง Submit visa แล้วจึงโทร/จองกับโรงพยาบาลได้
+                    </p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="health">
+                <div class="faq-question">
+                    <h3>ตรวจสุขภาพล่วงหน้าได้กี่เดือน? ผลมีอายุกี่ปี?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ตรวจได้ทันทีที่ได้รับอีเมล HAP และต้องเข้าตรวจภายใน 28 วันจากวันที่ Immi สั่ง; ผลใช้ได้ 1 ปีเต็ม
+                    </p>
+                </div>
+            </article>
+
+            <!-- ───── อื่นๆ ───── -->
+            <article class="faq-item" data-category="others">
+                <div class="faq-question">
+                    <h3>ถ้าวีซ่า “ไม่ผ่าน” สามารถอุทธรณ์ได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>WH AUS ไม่มีกระบวนการอุทธรณ์ แต่หากเอกสารสำคัญตกหล่น (เช่น Letter of Support)
+                        สามารถอีเมลไปยังหน่วยงานที่เกี่ยวข้องเพื่อขอทบทวนได้</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="others">
+                <div class="faq-question">
+                    <h3>ไปรับใบ ด.ย. เองต้องเตรียมอะไร? ถ้ามอบอำนาจทำอย่างไร?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>รับเอง: บัตรประชาชน + ปากกา (หลีกเลี่ยงช่วงพักเที่ยง)<br>มอบอำนาจ: สำเนาบัตร ปชช. ผู้มอบ &amp;
+                        ผู้รับ พร้อมลายเซ็นสดทุกหน้า</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="others">
+                <div class="faq-question">
+                    <h3>หลังวีซ่า granted ทำงานกับนายจ้างเดิมเกิน 6 เดือนในออสได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ได้ หากตำแหน่งอยู่ในกลุ่ม Tourism &amp; Hospitality (เช่น waiter, chef)
+                        ซึ่งรัฐบาลผ่อนปรนให้ไม่จำกัดชั่วโมง</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="service">
+                <div class="faq-question">
+                    <h3>VisaPartner ช่วยกดโควตาได้อย่างไร?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>เราพัฒนาระบบอัตโนมัติ (Automation) ที่มีความแม่นยำและรวดเร็วสูง
+                        เพื่อช่วยในการกรอกข้อมูลและกดรับสิทธิ์ในวันที่ระบบเปิด โดยเน้นความโปร่งใสและสิทธิ์เป็นของคุณ
+                        100%</p>
+                </div>
+            </article>
+
+            <!-- ───── คำถามใหม่จาก OpenChat 2026 ───── -->
+            <article class="faq-item" data-category="finance">
+                <div class="faq-question">
+                    <h3>ควรเริ่มเตรียมเงินนอนบัญชีเมื่อไหร่?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ควรเริ่มตั้งแต่เดือน ก.ย.-ต.ค. จะได้ประมาณ 7-8 เดือนพอดีก่อนยื่นวีซ่า ถ้าให้ชัวร์ไม่ควรเกิน ม.ค.
+                        ของปีถัดไปครับ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="finance">
+                <div class="faq-question">
+                    <h3>บัญชีเคลื่อนไหวได้ไหม หรือต้องนิ่งไว้เลย?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>บัญชีสามารถโอนเข้าโอนออกได้ปกติ แต่ balance ยอดคงเหลือพยายามอย่าให้น้อยกว่า 120,000 บาท
+                        มากกว่าได้ น้อยกว่าไม่ควรครับ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="finance">
+                <div class="faq-question">
+                    <h3>ปี 2025 อิมพิจารณาเข้มขึ้นไหม? ควรเตรียมเงินเท่าไร?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ปี 2025 อิมเรียกเอกสารเพิ่มหลายเคสมาก แนะนำเตรียมเผื่อไว้สัก 130,000 บาท
+                        เพราะในเว็บระบุว่าผู้สมัครต้องมี $6,000 หรือ $5,000 + ตั๋วขากลับครับ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="finance">
+                <div class="faq-question">
+                    <h3>ใช้บัญชี Kept หรือบัญชีออนไลน์ยื่นได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ได้ครับ เพราะวีซ่ายื่นออนไลน์ คัดเอกสารส่งอิมได้เหมือนธนาคารปกติเลย</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="finance">
+                <div class="faq-question">
+                    <h3>เงินกู้ใช้ยื่นวีซ่าได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ไม่ได้ครับ เพราะขาดความมั่นคงทางการเงิน</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="finance">
+                <div class="faq-question">
+                    <h3>รอบ ดย. กับรอบวีซ่า ใช้บัญชีสปอนต่างกันไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>รอบ ดย. ต้องเป็นบัญชีของผู้สมัครเท่านั้น ส่วนรอบวีซ่า
+                        สามารถใช้บัญชีผู้สมัครหรือสปอนเซอร์ก็ได้ครับ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="health">
+                <div class="faq-question">
+                    <h3>PTE คะแนนปรับลดจาก 30 เป็น 24 จริงไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ใช่ครับ สำหรับผลสอบที่ออกตั้งแต่ 7 ส.ค. 2025 เป็นต้นไป ใช้ 24 คะแนน ผลก่อนนั้นใช้ 30 ครับ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="health">
+                <div class="faq-question">
+                    <h3>สอบหลังกดยูสเซอร์ได้ ผลสอบจะออกทันไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ถ้าสอบแบบคอมพิวเตอร์ ผลออกไม่กี่วัน แต่ต้องระวังเรื่องที่นั่งสอบอาจเต็ม
+                        และระยะเวลาที่ห่างกันอาจมีน้อย (13-20 วัน) ถ้าจะสอบหลังกดยูส ต้องแพลนดีๆครับ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="health">
+                <div class="faq-question">
+                    <h3>IELTS กับ PTE อันไหนง่ายกว่า?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ขึ้นอยู่กับความถนัดของแต่ละคน แต่ถ้าเลเวล 4.5 หรือ 24 ไม่ยากเกินไปทั้งสองแบบครับ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="others">
+                <div class="faq-question">
+                    <h3>พาสปอร์ตจะหมดอายุเดือน 5 ปี 2027 สมัครปี 2026 ได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>แนะนำไปต่ออายุใหม่ก่อนดีกว่าครับ เพื่อความสะดวกตลอดช่วงที่อยู่ออสเตรเลีย</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>กดเน็ตบ้านหรือเน็ตมือถือดี?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ได้ทั้งสองแบบครับ มีคนกดผ่านทั้งคอมต่อ LAN และมือถือผ่านเน็ตมือถือ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="quota">
+                <div class="faq-question">
+                    <h3>วันแรกกดไม่ได้ ยังมีโอกาสไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>มีครับ วันที่ 2-8 ก็กดได้วันละ 500 คน ไม่ต้องตกใจถ้าวันแรกไม่ได้ ค่อยๆกด F5 ไปเรื่อยๆครับ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="others">
+                <div class="faq-question">
+                    <h3>คนเป็นซึมเศร้าไป WAH ได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ไม่มีข้อห้ามครับ แต่แนะนำให้รักษาตัวให้เรียบร้อยก่อนเดินทาง เพราะต้องสู้ค่อนข้างมาก</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="others">
+                <div class="faq-question">
+                    <h3>เคยโดนปฏิเสธวีซ่า นร ออส ยื่น WAH ได้ไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ยื่นได้ครับ แต่แนะนำเตรียมเอกสารดีๆ</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="others">
+                <div class="faq-question">
+                    <h3>ไปถึงออสแล้วหางานยากไหม?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ไม่ยากครับ งานเยอะมาก</p>
+                </div>
+            </article>
+
+            <article class="faq-item" data-category="others">
+                <div class="faq-question">
+                    <h3>Pocket money พกไปเท่าไรดี?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>แล้วแต่คนครับ บางคนพกมาแค่ 1,500 ดอล บางคน 5,000-6,000 ดอล แต่ถ้าไม่ทำงาน 5,000 ดอลอยู่ได้สบายๆ
+                        1-3 เดือนครับ</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        // FAQ Toggle logic
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                item.classList.toggle('active');
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    if (other !== item) other.classList.remove('active');
+                });
+            });
+        });
+
+        // Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const menu = document.getElementById('menuOverlay');
+        const menuClose = document.getElementById('menuClose');
+        const menuBackdrop = document.getElementById('menuBackdrop');
+
+        menuBtn.onclick = () => { menu.classList.add('is-open'); document.body.style.overflow = 'hidden'; };
+        menuClose.onclick = menuBackdrop.onclick = () => { menu.classList.remove('is-open'); document.body.style.overflow = ''; };
+
+        // Search & Filter
+        const search = document.getElementById('faqSearch');
+        const tabs = document.querySelectorAll('.category-tab');
+        const items = document.querySelectorAll('.faq-item');
+
+        function filterFaqs() {
+            const query = search.value.toLowerCase();
+            const activeCat = document.querySelector('.category-tab.active').dataset.category;
+
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                const cat = item.dataset.category;
+                const matchesQuery = text.includes(query);
+                const matchesCat = activeCat === 'all' || cat === activeCat;
+
+                item.style.display = (matchesQuery && matchesCat) ? 'block' : 'none';
+            });
+        }
+
+        search.oninput = filterFaqs;
+        tabs.forEach(tab => {
+            tab.onclick = () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                filterFaqs();
+            };
+        });
+    </script>
+</body>
+
+</html>
